@@ -173,6 +173,7 @@ object Deps {
         const val appCompat = "androidx.appcompat:appcompat:1.2.0"
         const val legacy = "androidx.legacy:legacy-support-v4:1.0.0"
         const val startup = "androidx.startup:startup-runtime:1.0.0-beta01"
+        const val viewPager2 = "androidx.viewpager2:viewpager2:1.0.0"
 
         object Lifecycle {
             const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifeCycle}"

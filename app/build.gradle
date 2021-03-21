@@ -47,13 +47,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation(Deps.Airbnb.Mavericks.core)
-    implementation(Deps.Airbnb.Mavericks.testing)
-    implementation(Deps.Airbnb.Mavericks.mocking)
+//    implementation(Deps.Airbnb.Mavericks.testing)
+//    implementation(Deps.Airbnb.Mavericks.mocking)
 
     implementation(Deps.Airbnb.Epoxy.core)
     implementation(Deps.Airbnb.Epoxy.dataBinding)
@@ -64,8 +65,10 @@ dependencies {
     implementation(Deps.AndroidX.Navigation.ui)
     implementation(Deps.AndroidX.Navigation.test)
 
+    implementation(Deps.AndroidX.viewPager2)
+
     implementation(Deps.viewBindingUtil)
 
     implementation(Deps.circularImageView)
-    implementation(Deps.roundImageView)
+//    implementation(Deps.roundImageView)
 }
