@@ -15,4 +15,9 @@
 
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextInputLayoutAppearance" parent="Widget.Design.TextInputLayout">
+        <item name="colorControlActivated">@color/red</item>
+        <item name="colorControlHighlight">@color/purple_200</item>
+    </style>
 </resources>
