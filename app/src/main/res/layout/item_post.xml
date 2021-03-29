@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="height"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:paddingBottom="8dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:maxLines="1"
+            android:text="Lover Moon"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profile"
+            app:layout_constraintTop_toTopOf="@id/profile" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Il ya 23 heures"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <ImageButton
+            android:id="@+id/option"
+            android:layout_width="15dp"
+            android:layout_height="3dp"
+            android:src="@drawable/ic_menu_horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/name" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/tags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:chipSpacing="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nature" />
+
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="technologie" />
+
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manga" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"
+            android:text="@string/post_description"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tags" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/image"
+            android:layout_width="0dp"
+            android:layout_height="331dp"
+            android:src="@drawable/img3"
+            app:setRandomImage="@{`true`}"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/views"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="23.0085 Vues"
+            android:drawableStart="@drawable/ic_views"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:weightSum="9"
+            app:layout_constraintTop_toBottomOf="@id/views">
+
+            <ImageButton
+                android:id="@+id/likeBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="0"
+                android:background="#FFFFFF"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_like"
+                app:layout_constraintEnd_toStartOf="@id/guideline25"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:text="500 K"
+                android:textColor="#747474"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/likeBtn"
+                app:layout_constraintEnd_toEndOf="@id/guideline25"
+                app:layout_constraintStart_toEndOf="@id/likeBtn"
+                app:layout_constraintTop_toTopOf="@id/likeBtn" />
+
+            <ImageButton
+                android:id="@+id/commentBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="0"
+                android:background="#FFFFFF"
+                android:scaleType="center"
+                android:src="@drawable/ic_comment"
+                app:layout_constraintEnd_toStartOf="@id/guideline50"
+                app:layout_constraintStart_toEndOf="@id/guideline25"
+                app:layout_constraintTop_toBottomOf="@id/image" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="100"
+                android:textColor="#747474"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/commentBtn"
+                app:layout_constraintEnd_toEndOf="@id/guideline50"
+                app:layout_constraintStart_toEndOf="@id/commentBtn"
+                app:layout_constraintTop_toTopOf="@id/commentBtn" />
+
+            <ImageButton
+                android:id="@+id/shareBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="0"
+                android:background="#FFFFFF"
+                android:scaleType="center"
+                android:src="@drawable/ic_share"
+                app:layout_constraintEnd_toStartOf="@id/guideline75"
+                app:layout_constraintStart_toEndOf="@id/guideline50"
+                app:layout_constraintTop_toBottomOf="@id/image" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="100"
+                android:textColor="#747474"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/shareBtn"
+                app:layout_constraintEnd_toEndOf="@id/guideline75"
+                app:layout_constraintStart_toEndOf="@id/shareBtn"
+                app:layout_constraintTop_toTopOf="@id/shareBtn" />
+
+            <ImageButton
+                android:id="@+id/favoriteBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="0"
+                android:background="#FFFFFF"
+                android:scaleType="center"
+                android:src="@drawable/ic_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@id/guideline75"
+                app:layout_constraintTop_toBottomOf="@id/image" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
