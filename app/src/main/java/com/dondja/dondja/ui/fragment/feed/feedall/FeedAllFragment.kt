@@ -1,4 +1,4 @@
-package com.dondja.dondja.ui.fragment.feedall
+package com.dondja.dondja.ui.fragment.feed.feedall
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,11 +8,8 @@ import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import com.airbnb.epoxy.EpoxyController
 import com.airbnb.epoxy.carousel
-import com.dondja.dondja.R
-import com.dondja.dondja.StoryBindingModel_
+import com.dondja.dondja.*
 import com.dondja.dondja.databinding.FragmentFeedAllBinding
-import com.dondja.dondja.post
-import com.dondja.dondja.story
 
 
 class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
@@ -38,6 +35,10 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
             for (i in 1..6) {
                 post {
                     id("post")
+                }
+
+                postSeparator {
+                    id("separator")
                 }
             }
         }

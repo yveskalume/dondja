@@ -8,10 +8,10 @@ import android.viewbinding.library.fragment.viewBinding
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentFeedBinding
 import com.dondja.dondja.ui.adapter.FeedPagerAdapter
-import com.dondja.dondja.ui.fragment.feedall.FeedAllFragment
-import com.dondja.dondja.ui.fragment.feedfollowing.FeedFollowingFragment
-import com.dondja.dondja.ui.fragment.feedgroup.FeedGroupFragment
-import com.dondja.dondja.ui.fragment.feedhashtag.FeedHashtagFragment
+import com.dondja.dondja.ui.fragment.feed.feedall.FeedAllFragment
+import com.dondja.dondja.ui.fragment.feed.feedfollowing.FeedFollowingFragment
+import com.dondja.dondja.ui.fragment.feed.feedgroup.FeedGroupFragment
+import com.dondja.dondja.ui.fragment.feed.feedhashtag.FeedHashtagFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class FeedFragment : Fragment(R.layout.fragment_feed) {

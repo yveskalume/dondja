@@ -1,4 +1,4 @@
-package com.dondja.dondja.ui.fragment.feedgroup
+package com.dondja.dondja.ui.fragment.feed.feedgroup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

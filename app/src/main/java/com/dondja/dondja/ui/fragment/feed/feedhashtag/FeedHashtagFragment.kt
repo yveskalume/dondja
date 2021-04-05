@@ -1,4 +1,4 @@
-package com.dondja.dondja.ui.fragment.feedfollowing
+package com.dondja.dondja.ui.fragment.feed.feedhashtag
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,10 +14,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [FeedFollowingFragment.newInstance] factory method to
+ * Use the [FeedHashtagFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FeedFollowingFragment : Fragment() {
+class FeedHashtagFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,7 +35,7 @@ class FeedFollowingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed_following, container, false)
+        return inflater.inflate(R.layout.fragment_feed_hashtag, container, false)
     }
 
     companion object {
@@ -45,12 +45,12 @@ class FeedFollowingFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment FeedFollowingFragment.
+         * @return A new instance of fragment FeedHashtagFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            FeedFollowingFragment().apply {
+            FeedHashtagFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
