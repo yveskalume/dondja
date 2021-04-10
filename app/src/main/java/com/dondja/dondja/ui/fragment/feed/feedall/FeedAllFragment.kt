@@ -22,10 +22,16 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
 
     private fun setRecyclerView() {
         val stories: ArrayList<StoryBindingModel_> = arrayListOf()
+        val sugestions: ArrayList<UserSugestionBindingModel_> = arrayListOf()
         for (i in 1..6) {
             val model = StoryBindingModel_()
                     .id(i)
             stories.add(model)
+
+            UserSugestionBindingModel_()
+                    .id(i).also {
+                        sugestions.add(it)
+                    }
         }
         binding.rvFeedAll.withModels {
             carousel {
@@ -37,9 +43,18 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
                     id("post")
                 }
 
-                postSeparator {
-                    id("separator")
+                if(i == 4) {
+                    carousel {
+                        id(i)
+                        models(sugestions)
+                    }
+                } else {
+
+                    postSeparator {
+                        id("separator")
+                    }
                 }
+
             }
         }
     }

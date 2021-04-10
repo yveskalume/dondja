@@ -7,4 +7,8 @@
         android:id="@+id/feedFragment"
         android:name="com.dondja.dondja.ui.fragment.feed.FeedFragment"
         android:label="FeedFragment" />
+    <fragment
+        android:id="@+id/discoverFragment"
+        android:name="com.dondja.dondja.ui.fragment.discover.DiscoverFragment"
+        android:label="DiscoverFragment" />
 </navigation>
