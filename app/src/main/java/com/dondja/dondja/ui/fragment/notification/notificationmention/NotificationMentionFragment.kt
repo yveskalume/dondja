@@ -20,15 +20,14 @@ class NotificationMentionFragment : Fragment(R.layout.fragment_notification_ment
 
     private fun setUpRecycler() {
         binding.rV.withModels {
-            for (i in 1..8) {
-                headerNofication {
-                    id(i)
-                    showDemands(true)
-                }
-                notificationMention {
-                    id(i)
-                    showValidationButtons(true)
-                }
+            headerNofication {
+                id("header")
+                showDemands(true)
+            }
+
+            notificationMention {
+                id("item")
+                showValidationButtons(true)
             }
         }
     }
