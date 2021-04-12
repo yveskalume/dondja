@@ -20,7 +20,7 @@ class NotificationAllFragment : Fragment(R.layout.fragment_notification_all) {
 
     private fun setUpRecycler() {
         binding.rV.withModels {
-            for (i in 1..8) {
+            for (i in 1..2) {
                 headerNofication {
                     id(i)
                 }
@@ -30,10 +30,10 @@ class NotificationAllFragment : Fragment(R.layout.fragment_notification_all) {
                 notificationWithPicture {
                     id(i)
                 }
-                notificationFollow {
+                notificationMention {
                     id(i)
                 }
-                notificationMention {
+                notificationFollow {
                     id(i)
                 }
             }

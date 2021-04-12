@@ -25,17 +25,9 @@ class NotificationMentionFragment : Fragment(R.layout.fragment_notification_ment
                     id(i)
                     showDemands(true)
                 }
-                notification {
-                    id(i)
-                }
-                notificationWithPicture {
-                    id(i)
-                }
-                notificationFollow {
-                    id(i)
-                }
                 notificationMention {
                     id(i)
+                    showValidationButtons(true)
                 }
             }
         }
