@@ -11,4 +11,12 @@
         android:id="@+id/discoverFragment"
         android:name="com.dondja.dondja.ui.fragment.discover.DiscoverFragment"
         android:label="DiscoverFragment" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.dondja.dondja.ui.fragment.notification.NotificationFragment"
+        android:label="NotificationFragment" />
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.dondja.dondja.ui.fragment.message.MessageFragment"
+        android:label="MessageFragment" />
 </navigation>

@@ -11,4 +11,14 @@
         android:icon="@drawable/ic_explorer"
         app:showAsAction="always"
         />
+    <item android:id="@+id/messageFragment"
+        android:title="Messages"
+        android:icon="@drawable/ic_explorer"
+        app:showAsAction="ifRoom"
+        />
+    <item android:id="@+id/notificationFragment"
+        android:title="Notification"
+        android:icon="@drawable/ic_explorer"
+        app:showAsAction="always"
+        />
 </menu>
