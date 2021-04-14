@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
+import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.EpoxyController
 import com.airbnb.epoxy.carousel
 import com.dondja.dondja.*
@@ -34,6 +35,7 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
                     }
         }
         binding.rvFeedAll.withModels {
+            Carousel.setDefaultGlobalSnapHelperFactory(null)
             carousel {
                 id("story")
                 models(stories)

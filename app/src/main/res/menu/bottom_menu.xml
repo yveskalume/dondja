@@ -2,23 +2,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/feedFragment"
-        android:title="Home"
-        android:icon="@drawable/ic_explorer"
+        android:title="Feed"
+        android:icon="@drawable/ic_home"
         app:showAsAction="ifRoom"
         />
     <item android:id="@+id/discoverFragment"
         android:title="Explorer"
         android:icon="@drawable/ic_explorer"
+        app:showAsAction="ifRoom"
+        />
+    <item android:id="@+id/addPost"
+        android:title="New"
+        android:icon="@drawable/ic_add"
         app:showAsAction="always"
         />
     <item android:id="@+id/messageFragment"
-        android:title="Messages"
-        android:icon="@drawable/ic_explorer"
+        android:title="Message"
+        android:icon="@drawable/ic_comment"
         app:showAsAction="ifRoom"
         />
     <item android:id="@+id/notificationFragment"
         android:title="Notification"
-        android:icon="@drawable/ic_explorer"
+        android:icon="@drawable/ic_notification"
         app:showAsAction="always"
         />
 </menu>

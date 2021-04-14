@@ -10,6 +10,9 @@
         <variable
             name="onOptionClick"
             type="android.view.View.OnClickListener" />
+        <variable
+            name="onPostClick"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -139,6 +142,7 @@
             app:setRandomImage="@{`true`}"
             android:scaleType="centerCrop"
             app:riv_corner_radius="8dp"
+            android:onClick="@{onPostClick}"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

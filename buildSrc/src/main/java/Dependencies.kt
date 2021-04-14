@@ -256,4 +256,5 @@ object Deps {
     const val circularImageView = "de.hdodenhof:circleimageview:3.1.0"
     const val localization = "com.zeugmasolutions.localehelper:locale-helper-android:1.1.4"
     const val jodaTime = "net.danlew:android.joda:2.10.9"
+    const val storyView = "com.github.shts:StoriesProgressView:3.0.0"
 }

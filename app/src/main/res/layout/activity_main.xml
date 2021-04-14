@@ -13,7 +13,6 @@
         tools:context=".ui.activity.MainActivity">
 
         <fragment
-            android:tag="fragmentHostTag"
             android:id="@+id/fragmentHost"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"

@@ -58,10 +58,9 @@
                     android:layout_height="38dp"
                     android:theme="@style/TextInputLayoutAppearance"
                     android:drawableStart="@drawable/ic_search"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:drawablePadding="12dp"
                     android:padding="8dp"
-
                     android:hint="Recherche"
                     android:background="@android:color/white"/>
             </com.google.android.material.card.MaterialCardView>
