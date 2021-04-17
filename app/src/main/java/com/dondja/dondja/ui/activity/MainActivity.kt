@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setUpBottomNav()
+        Carousel.setDefaultGlobalSnapHelperFactory(null)
     }
 
     private fun setUpBottomNav() {
