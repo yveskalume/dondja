@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
+import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.EpoxyController
 import com.airbnb.epoxy.carousel
 import com.dondja.dondja.*
 import com.dondja.dondja.databinding.FragmentFeedAllBinding
+import com.dondja.dondja.util.withModelsFrom
 
 
 class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
@@ -22,33 +24,29 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
     }
 
     private fun setRecyclerView() {
-        val stories: ArrayList<StoryBindingModel_> = arrayListOf()
-        val sugestions: ArrayList<UserSugestionBindingModel_> = arrayListOf()
-        for (i in 1..6) {
-            val model = StoryBindingModel_()
-                    .id(i)
-            stories.add(model)
-
-            UserSugestionBindingModel_()
-                    .id(i).also {
-                        sugestions.add(it)
-                    }
-        }
         binding.rvFeedAll.withModels {
-            Carousel.setDefaultGlobalSnapHelperFactory(null)
             carousel {
                 id("story")
-                models(stories)
+                withModelsFrom(listOf(1,2,3,4,5)) {
+                    StoryBindingModel_()
+                            .id(it)
+                            .onStoryClick { _ ->
+                                findNavController().navigate(R.id.to_storyViewFragment)
+                            }
+                }
             }
             for (i in 1..6) {
                 post {
                     id("post")
                 }
 
-                if(i == 4) {
+                if(i == 3) {
                     carousel {
                         id(i)
-                        models(sugestions)
+                        withModelsFrom(listOf(1,2,3,4,5)) {
+                            UserSugestionBindingModel_()
+                                    .id(it)
+                        }
                     }
                 } else {
 

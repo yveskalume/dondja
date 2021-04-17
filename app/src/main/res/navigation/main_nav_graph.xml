@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_nav_graph"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
     app:startDestination="@id/feedFragment">
 
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.dondja.dondja.ui.fragment.feed.FeedFragment"
-        android:label="FeedFragment" />
+        android:label="FeedFragment" >
+        <action
+            android:id="@+id/to_storyViewFragment"
+            app:destination="@id/storyViewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/discoverFragment"
         android:name="com.dondja.dondja.ui.fragment.discover.DiscoverFragment"
@@ -19,4 +24,8 @@
         android:id="@+id/messageFragment"
         android:name="com.dondja.dondja.ui.fragment.message.MessageFragment"
         android:label="MessageFragment" />
+    <fragment
+        android:id="@+id/storyViewFragment"
+        android:name="com.dondja.dondja.ui.fragment.storyview.StoryViewFragment"
+        android:label="StoryViewFragment" />
 </navigation>

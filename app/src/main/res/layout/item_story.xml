@@ -18,12 +18,14 @@
             android:layout_height="177dp"
             android:src="@drawable/img1"
             app:riv_corner_radius="8dp"
+            android:clickable="true"
             android:onClick="@{onStoryClick}"
             android:scaleType="centerCrop"
             app:setRandomImage="@{`true`}"
 
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:focusable="true" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile"
