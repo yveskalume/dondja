@@ -38,6 +38,9 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
             for (i in 1..6) {
                 post {
                     id("post")
+                    onPostClick { _ ->
+                        findNavController().navigate(R.id.to_postViewFragment)
+                    }
                 }
 
                 if(i == 3) {

@@ -11,6 +11,9 @@
         <action
             android:id="@+id/to_storyViewFragment"
             app:destination="@id/storyViewFragment" />
+        <action
+            android:id="@+id/to_postViewFragment"
+            app:destination="@id/postViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/discoverFragment"
@@ -28,4 +31,8 @@
         android:id="@+id/storyViewFragment"
         android:name="com.dondja.dondja.ui.fragment.storyview.StoryViewFragment"
         android:label="StoryViewFragment" />
+    <fragment
+        android:id="@+id/postViewFragment"
+        android:name="com.dondja.dondja.ui.fragment.postview.PostViewFragment"
+        android:label="PostViewFragment" />
 </navigation>
