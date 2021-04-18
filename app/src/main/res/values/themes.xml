@@ -20,4 +20,8 @@
         <item name="colorControlActivated">@color/red</item>
         <item name="colorControlHighlight">@color/purple_200</item>
     </style>
+
+    <style name="NavigationTheme" parent="">
+        <item name="android:background">#00ffffff</item>
+    </style>
 </resources>
