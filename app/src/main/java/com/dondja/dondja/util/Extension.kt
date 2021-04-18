@@ -1,20 +1,30 @@
 package com.dondja.dondja.util
 
-import android.widget.ImageView
-import androidx.databinding.BindingAdapter
-import com.airbnb.epoxy.EpoxyRecyclerView
-import com.dondja.dondja.R
-import com.makeramen.roundedimageview.RoundedImageView
+import android.annotation.SuppressLint
+import android.view.MotionEvent
+import android.view.View
+import jp.shts.android.storiesprogressview.StoriesProgressView
 
-@BindingAdapter("setWithPager")
-fun EpoxyRecyclerView.setUpWithPager(rv: EpoxyRecyclerView) {
-    withModels {
-
+@SuppressLint("ClickableViewAccessibility")
+fun View.setHasStoryNavigationAction(storyView : StoriesProgressView, action : () -> Unit) {
+    var longPressed = false
+    setOnClickListener {
+        action()
     }
-}
 
-@BindingAdapter(value = ["setRandomImage"])
-fun ImageView.setRandomImage(boolean: String) {
-    val images = listOf(R.drawable.img1,R.drawable.img2,R.drawable.img3,R.drawable.img4,R.drawable.img5,R.drawable.img6)
-    setImageResource(images.random())
+    setOnLongClickListener {
+        longPressed = true
+        storyView.pause()
+        true
+    }
+
+    setOnTouchListener { v, event ->
+
+        v.onTouchEvent(event)
+        if (event.action == MotionEvent.ACTION_UP && longPressed) {
+            longPressed = false
+            storyView.resume()
+        }
+        return@setOnTouchListener true
+    }
 }

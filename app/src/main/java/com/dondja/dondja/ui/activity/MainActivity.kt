@@ -2,6 +2,7 @@ package com.dondja.dondja.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
 import com.airbnb.epoxy.Carousel
@@ -21,7 +22,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setUpBottomNav()
+        setUpNavigation()
         Carousel.setDefaultGlobalSnapHelperFactory(null)
+    }
+
+    private fun setUpNavigation() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.bottomNavigation.isVisible = when(destination.id) {
+                R.id.storyViewFragment -> false
+                else -> true
+            }
+        }
     }
 
     private fun setUpBottomNav() {
