@@ -3,10 +3,9 @@ package com.dondja.dondja.util
 import android.annotation.SuppressLint
 import android.view.MotionEvent
 import android.view.View
-import jp.shts.android.storiesprogressview.StoriesProgressView
 
 @SuppressLint("ClickableViewAccessibility")
-fun View.setHasStoryNavigationAction(storyView : StoriesProgressView, action : () -> Unit) {
+fun View.setHasStoryNavigationAction(storyView : StoryView, action : () -> Unit) {
     var longPressed = false
     setOnClickListener {
         action()
