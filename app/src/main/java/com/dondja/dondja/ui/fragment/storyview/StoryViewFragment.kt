@@ -11,6 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import androidx.navigation.fragment.findNavController
+import com.afollestad.materialdialogs.LayoutMode
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.bottomsheets.BottomSheet
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentStoryViewBinding
 import com.dondja.dondja.util.StoryView
@@ -49,8 +52,27 @@ class StoryViewFragment : Fragment(R.layout.fragment_story_view) {
         setUpListener()
     }
 
+    override fun onResume() {
+        super.onResume()
+        storyView.resume()
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     private fun setUpListener() {
+
+        binding.circleImageView.setOnClickListener {
+            findNavController().navigate(R.id.to_dialogStoryViewersFragment)
+            storyView.pause()
+        }
+        binding.circleImageView2.setOnClickListener {
+            findNavController().navigate(R.id.to_dialogStoryViewersFragment)
+            storyView.pause()
+        }
+
+        binding.circleImageView4.setOnClickListener {
+            findNavController().navigate(R.id.to_dialogStoryViewersFragment)
+            storyView.pause()
+        }
 
         storyView.setStoriesListener(object : StoryView.StoriesListener{
             override fun onNext() {
@@ -75,6 +97,12 @@ class StoryViewFragment : Fragment(R.layout.fragment_story_view) {
 
         binding.nextStory.setHasStoryNavigationAction(storyView) {
             storyView.skip()
+        }
+    }
+
+    private fun showStatusViewersDialog() {
+        MaterialDialog(requireContext(), BottomSheet(LayoutMode.WRAP_CONTENT)).show {
+
         }
     }
 }

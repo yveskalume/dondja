@@ -30,9 +30,17 @@
     <fragment
         android:id="@+id/storyViewFragment"
         android:name="com.dondja.dondja.ui.fragment.storyview.StoryViewFragment"
-        android:label="StoryViewFragment" />
+        android:label="StoryViewFragment" >
+        <action
+            android:id="@+id/to_dialogStoryViewersFragment"
+            app:destination="@id/dialogStoryViewersFragment" />
+    </fragment>
     <fragment
         android:id="@+id/postViewFragment"
         android:name="com.dondja.dondja.ui.fragment.postview.PostViewFragment"
         android:label="PostViewFragment" />
+    <dialog
+        android:id="@+id/dialogStoryViewersFragment"
+        android:name="com.dondja.dondja.ui.fragment.dialogstoryviewers.DialogStoryViewersFragment"
+        android:label="DialogStoryViewersFragment" />
 </navigation>

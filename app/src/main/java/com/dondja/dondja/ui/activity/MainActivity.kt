@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.bottomNavigation.isVisible = when(destination.id) {
                 R.id.storyViewFragment -> false;
+                R.id.dialogStoryViewersFragment -> false;
                 R.id.postViewFragment -> false
                 else -> true
             }
