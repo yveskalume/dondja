@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
     </data>
 
     <com.airbnb.epoxy.EpoxyRecyclerView
@@ -12,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.fragment.discover.popular.PopularFragment"
-        app:spanCount="2"
         app:itemSpacing="2dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+        android:orientation="vertical" />
 </layout>
