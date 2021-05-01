@@ -72,6 +72,7 @@ dependencies {
 
     implementation(Deps.circularImageView)
     implementation(Deps.roundImageView)
+    implementation(Deps.materialDialog)
     implementation(Deps.storyView)
     implementation 'com.revosleap.layout:blurrylayout:2.0.0'
 }
