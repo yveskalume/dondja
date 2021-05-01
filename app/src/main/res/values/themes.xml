@@ -21,6 +21,10 @@
         <item name="colorControlHighlight">@color/purple_200</item>
     </style>
 
+    <style name="CustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:fontWeight">400</item>
+    </style>
+
     <style name="NavigationTheme" parent="">
         <item name="android:background">#00ffffff</item>
     </style>
