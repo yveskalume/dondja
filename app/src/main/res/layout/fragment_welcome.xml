@@ -54,6 +54,7 @@
                 android:layout_marginEnd="32dp"
                 android:backgroundTint="@color/white"
                 android:text="Log in"
+                android:textAllCaps="false"
                 app:cornerRadius="36dp"
                 app:elevation="0dp"
                 android:textColor="@color/red"
