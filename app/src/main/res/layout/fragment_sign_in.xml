@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.signin.SignInFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="118dp"
+                android:layout_height="50dp"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="49dp"
+                android:src="@drawable/logo"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Welcome Back !"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txt_connectez_vous_en_saississant_votre_adresse_mail_ou_votre_numero_de_telephone_et_votre_mot_de_passe"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginStart="48dp"
+                android:layout_marginEnd="48dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="94dp"
+                android:text="Adresse mail ou Téléphone"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                app:boxStrokeColor="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                app:boxCornerRadiusTopStart="36dp"
+                app:boxCornerRadiusTopEnd="36dp"
+                app:boxCornerRadiusBottomEnd="36dp"
+                app:boxCornerRadiusBottomStart="36dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginStart="48dp"
+                android:layout_marginEnd="48dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="24dp"
+                android:text="Mot de passe"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                app:boxStrokeColor="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                app:boxCornerRadiusTopStart="36dp"
+                app:boxCornerRadiusTopEnd="36dp"
+                app:boxCornerRadiusBottomEnd="36dp"
+                app:boxCornerRadiusBottomStart="36dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="89dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:padding="8dp"
+                app:cornerRadius="36dp"
+                android:text="Log in"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="45dp"
+                android:textSize="15sp"
+                android:textColor="@color/red"
+                android:layout_marginBottom="8dp"
+                android:text="Mot de passe oublié ?"/>
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

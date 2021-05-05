@@ -6,5 +6,13 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.dondja.dondja.ui.fragment.welcome.WelcomeFragment"
-        android:label="WelcomeFragment" />
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.dondja.dondja.ui.fragment.signin.SignInFragment"
+        android:label="SignInFragment" />
 </navigation>
