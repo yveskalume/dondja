@@ -2,9 +2,11 @@
     <string name="app_name">Dondja</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="post_description">Ainsi, j’ai traversé des tempetes de colère, des rivières de larmes...Mais la seule chose qui continue de m’emprisonner, c’est le silence de ton absence, Blessure sur laquelle je m’appuie pour exister</string>
+    <string name="post_description">Ainsi, j’ai traversé des tempetes de colère, des rivières de larmes… Mais la seule chose qui continue de m’emprisonner, c’est le silence de ton absence, Blessure sur laquelle je m’appuie pour exister</string>
     <string name="aim_par_djody_khoya_mira_et_4_autres_personnes_comment_par_brumel">aimé par <b>Djody</b>, <b>Khoya</b>, <b>Mira</b> et 4 autres personnes commenté par <b>Brumel</b></string>
     <string name="user_name">\@Elysee</string>
     <string name="txt_langue"><font color="#EE2255">Langue </font>( Français, FR)</string>
     <string name="txt_connectez_vous_en_saississant_votre_adresse_mail_ou_votre_numero_de_telephone_et_votre_mot_de_passe">Connectez vous en saississant votre adresse mail ou votre numero de telephone et votre mot de passe</string>
+    <string name="choisissez_une_photo_dans_votre_galerie_et_appuyez_sur_s_inscrire_pour_terminer_l_inscription">Choisissez une photo dans votre galerie et appuyez sur “s’inscrire“ pour terminer l’inscription</string>
+    <string name="txt_politique_de_confidentialit">En vous inscrivant, vous acceptez nos <b><font color="#EE2255">Conditions d’utilisation</font></b> et <b><font color="#EE2255">la Politique de confidentialité</font></b></string>
 </resources>
