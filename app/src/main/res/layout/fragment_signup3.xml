@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.signin.SignInFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="118dp"
+                android:layout_height="50dp"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="49dp"
+                android:src="@drawable/logo"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:weightSum="4">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stepper_rectangle"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="2dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stepper_rectangle"
+                    android:layout_weight="1"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stepper_rectangle"
+                    android:backgroundTint="#EFEFEF"
+                    android:layout_weight="1"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stepper_rectangle"
+                    android:backgroundTint="#EFEFEF"
+                    android:layout_weight="1"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"/>
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:gravity="center"
+                android:text="Confirmez votre numéro de Téléphone"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="39dp"
+                android:layout_marginEnd="39dp"
+                android:text="Saisissez le code de validation à six chiffres pour confirmer que vous avez bien recu le code"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:weightSum="2">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:textColor="@color/black"
+                    app:strokeWidth="0.3dp"
+                    android:backgroundTint="@color/white"
+                    app:elevation="0dp"
+                    app:cornerRadius="36dp"
+                    android:text="Precedent"/>
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    app:cornerRadius="36dp"
+                    app:elevation="0dp"
+                    android:text="Suivant"/>
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="45dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                android:layout_marginBottom="8dp"
+                android:text="Renvoyer le code"/>
+        </LinearLayout>
+
+    </ScrollView>
+</layout>
