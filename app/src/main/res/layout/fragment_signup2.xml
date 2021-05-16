@@ -202,7 +202,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/red"
                 android:layout_marginBottom="8dp"
-                android:text="Créer un compte only chat"/>
+                android:text="Utiliser mon numéro de téléphone"/>
         </LinearLayout>
 
     </ScrollView>
