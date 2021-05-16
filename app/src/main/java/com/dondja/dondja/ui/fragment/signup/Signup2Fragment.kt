@@ -19,7 +19,8 @@ class Signup2Fragment : Fragment(R.layout.fragment_signup2) {
 
     private fun setUpListener() {
         binding.btnNext.setOnClickListener {
-            findNavController().navigate(R.id.to_signup3Fragment)
+            val directions = Signup2FragmentDirections.toSignup3Fragment()
+            findNavController().navigate(directions)
         }
 
         binding.btnBack.setOnClickListener {
