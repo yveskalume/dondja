@@ -24,5 +24,9 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
             val direction = WelcomeFragmentDirections.toSignInFragment()
             findNavController().navigate(direction)
         }
+
+        binding.btnSignUp.setOnClickListener {
+            findNavController().navigate(R.id.to_signupFragment)
+        }
     }
 }

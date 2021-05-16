@@ -65,7 +65,7 @@
                 app:strokeWidth="0.2dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/materialButton5"
+                android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -94,7 +94,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialButton5" />
+                app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

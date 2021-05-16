@@ -95,6 +95,7 @@
                 android:layout_marginEnd="35dp"
                 android:weightSum="2">
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAllCaps="false"
@@ -107,6 +108,7 @@
                     app:cornerRadius="36dp"
                     android:text="Precedent"/>
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAllCaps="false"
