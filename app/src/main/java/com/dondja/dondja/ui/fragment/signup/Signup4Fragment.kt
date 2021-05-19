@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentSignup4Binding
 
@@ -16,6 +17,9 @@ class Signup4Fragment : Fragment(R.layout.fragment_signup4) {
     }
 
     private fun setUpListener() {
-
+        binding.btnNext.setOnClickListener {
+            val direction = Signup4FragmentDirections.toChooseThemeFragment()
+            findNavController().navigate(direction)
+        }
     }
 }

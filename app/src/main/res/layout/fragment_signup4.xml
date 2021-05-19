@@ -7,9 +7,13 @@
 
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/logo"
@@ -111,7 +115,7 @@
                     android:id="@+id/circleImageView12"
                     android:src="@drawable/img5"
                     />
-                <de.hdodenhof.circleimageview.CircleImageView
+                <ImageView
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_gravity="bottom|end"
@@ -126,7 +130,7 @@
             </FrameLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/materialButton6"
+                android:id="@+id/btnNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -141,7 +145,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
@@ -153,7 +157,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialButton6"
+                app:layout_constraintTop_toBottomOf="@+id/btnNext"
                 app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </layout>
