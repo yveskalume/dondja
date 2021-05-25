@@ -12,6 +12,7 @@ import com.airbnb.epoxy.EpoxyController
 import com.airbnb.epoxy.carousel
 import com.dondja.dondja.*
 import com.dondja.dondja.databinding.FragmentFeedAllBinding
+import com.dondja.dondja.ui.fragment.feed.FeedFragmentDirections
 import com.dondja.dondja.util.withModelsFrom
 
 
@@ -41,8 +42,13 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
             for (i in 1..6) {
                 post {
                     id("post")
+                    onThemeClick { _ ->
+                        val direction = FeedFragmentDirections.toThemeFeedFragment()
+                        findNavController().navigate(direction)
+                    }
                     onPostClick { _ ->
-                        findNavController().navigate(R.id.to_postViewFragment)
+                        val direction = FeedFragmentDirections.toPostViewFragment()
+                        findNavController().navigate(direction)
                     }
                 }
 

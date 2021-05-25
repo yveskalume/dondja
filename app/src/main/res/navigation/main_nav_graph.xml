@@ -14,6 +14,9 @@
         <action
             android:id="@+id/to_postViewFragment"
             app:destination="@id/postViewFragment" />
+        <action
+            android:id="@+id/to_themeFeedFragment"
+            app:destination="@id/themeFeedFragment" />
     </fragment>
     <fragment
         android:id="@+id/discoverFragment"
@@ -43,4 +46,8 @@
         android:id="@+id/dialogStoryViewersFragment"
         android:name="com.dondja.dondja.ui.fragment.dialogstoryviewers.DialogStoryViewersFragment"
         android:label="DialogStoryViewersFragment" />
+    <fragment
+        android:id="@+id/themeFeedFragment"
+        android:name="com.dondja.dondja.ui.fragment.themefeed.ThemeFeedFragment"
+        android:label="ThemeFeedFragment" />
 </navigation>
