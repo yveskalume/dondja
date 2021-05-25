@@ -13,6 +13,9 @@
         <variable
             name="onPostClick"
             type="android.view.View.OnClickListener" />
+        <variable
+            name="onThemeClick"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
