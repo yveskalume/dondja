@@ -25,6 +25,9 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
 
     private fun setRecyclerView() {
         binding.rvFeedAll.withModels {
+            headerStoryCarousel {
+                id("stories-header")
+            }
             carousel {
                 id("story")
                 withModelsFrom(listOf(1,2,3,4,5)) {
