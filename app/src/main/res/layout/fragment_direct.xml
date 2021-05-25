@@ -11,10 +11,7 @@
         android:id="@+id/rV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:itemSpacing="0.5dp"
-        android:paddingStart="0dp"
-        android:paddingEnd="0dp"
-        android:orientation="vertical"
-        tools:listitem="@layout/item_discover_for_carousel"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        tools:context=".ui.fragment.discover.popular.PopularFragment"
+        app:itemSpacing="2dp"
+        android:orientation="vertical" />
 </layout>
