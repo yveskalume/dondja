@@ -105,18 +105,21 @@
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:chipBackgroundColor="#F1F1F1"
                 android:text="Nature" />
 
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:chipBackgroundColor="#F1F1F1"
                 android:text="technologie" />
 
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:chipBackgroundColor="#F1F1F1"
                 android:text="Manga" />
         </com.google.android.material.chip.ChipGroup>
 
@@ -202,7 +205,7 @@
                 android:layout_weight="0"
                 android:background="#FFFFFF"
                 android:tint="#747474"
-                android:scaleType="center"
+                android:scaleType="fitCenter"
                 android:src="@drawable/ic_comment"
                 app:layout_constraintEnd_toStartOf="@id/guideline50"
                 app:layout_constraintStart_toEndOf="@id/guideline25"
