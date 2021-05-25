@@ -58,6 +58,7 @@
             android:textAllCaps="false"
             android:textSize="17sp"
             app:elevation="0dp"
+            android:stateListAnimator="@null"
             app:cornerRadius="43dp"
             app:layout_constraintEnd_toStartOf="@+id/materialButton2"
             app:layout_constraintTop_toBottomOf="@+id/materialTextView12" />
@@ -74,6 +75,7 @@
             android:textSize="17sp"
             app:cornerRadius="43dp"
             app:elevation="0dp"
+            android:stateListAnimator="@null"
             app:layout_constraintBottom_toBottomOf="@+id/materialButton3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/materialButton3"

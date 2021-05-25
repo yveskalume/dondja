@@ -105,6 +105,7 @@
                     app:strokeWidth="0.3dp"
                     android:backgroundTint="@color/white"
                     app:elevation="0dp"
+                    android:stateListAnimator="@null"
                     app:cornerRadius="36dp"
                     android:text="Precedent"/>
                 <com.google.android.material.button.MaterialButton
@@ -115,6 +116,7 @@
                     android:layout_weight="1"
                     android:layout_marginStart="4dp"
                     app:cornerRadius="36dp"
+                    android:stateListAnimator="@null"
                     app:elevation="0dp"
                     android:text="Suivant"/>
             </LinearLayout>

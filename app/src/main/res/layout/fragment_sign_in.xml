@@ -111,6 +111,7 @@
                 android:layout_marginEnd="36dp"
                 android:layout_marginTop="45dp"
                 android:textSize="15sp"
+                android:stateListAnimator="@null"
                 android:textColor="@color/red"
                 android:layout_marginBottom="8dp"
                 android:text="Mot de passe oublié ?"/>

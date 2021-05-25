@@ -137,6 +137,7 @@
                 android:layout_marginTop="66dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
+                android:stateListAnimator="@null"
                 android:textAllCaps="false"
                 app:cornerRadius="36dp"
                 android:text="Suivant" />
@@ -148,6 +149,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
+                android:stateListAnimator="@null"
                 android:backgroundTint="@color/white"
                 android:text="Ignorer"
                 android:textAllCaps="false"

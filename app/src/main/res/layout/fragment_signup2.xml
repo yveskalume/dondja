@@ -180,6 +180,7 @@
                     android:textColor="@color/black"
                     app:strokeWidth="0.3dp"
                     android:backgroundTint="@color/white"
+                    android:stateListAnimator="@null"
                     app:elevation="0dp"
                     app:cornerRadius="36dp"
                     android:text="Precedent"/>
@@ -191,6 +192,7 @@
                     android:layout_weight="1"
                     android:layout_marginStart="4dp"
                     app:cornerRadius="36dp"
+                    android:stateListAnimator="@null"
                     app:elevation="0dp"
                     android:text="Suivant"/>
             </LinearLayout>
