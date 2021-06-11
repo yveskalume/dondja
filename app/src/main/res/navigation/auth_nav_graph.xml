@@ -49,9 +49,16 @@
         <action
             android:id="@+id/to_chooseThemeFragment"
             app:destination="@id/chooseThemeFragment" />
+        <action
+            android:id="@+id/to_signup5Fragment"
+            app:destination="@id/signup5Fragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseThemeFragment"
         android:name="com.dondja.dondja.ui.fragment.choosetheme.ChooseThemeFragment"
         android:label="ChooseThemeFragment" />
+    <fragment
+        android:id="@+id/signup5Fragment"
+        android:name="com.dondja.dondja.ui.fragment.signup.Signup5Fragment"
+        android:label="Signup5Fragment" />
 </navigation>
