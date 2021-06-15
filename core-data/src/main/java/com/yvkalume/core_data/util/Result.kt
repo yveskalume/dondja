@@ -1,4 +1,4 @@
-package com.dondja.dondja.data.extension
+package com.yvkalume.core_data.util
 
 import androidx.lifecycle.MutableLiveData
 import java.lang.Exception

@@ -1,4 +1,4 @@
-package com.dondja.dondja.data.extension
+package com.yvkalume.core_data.util
 
 import kotlinx.coroutines.flow.Flow
 

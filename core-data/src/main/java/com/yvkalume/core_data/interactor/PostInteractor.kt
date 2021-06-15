@@ -1,8 +1,8 @@
-package com.dondja.dondja.data.interactor
+package com.yvkalume.core_data.interactor
 
-import com.dondja.dondja.data.entity.Post
-import com.dondja.dondja.data.extension.Crud
-import com.dondja.dondja.data.extension.Result
+import com.yvkalume.core_data.entity.Post
+import com.yvkalume.core_data.util.Crud
+import com.yvkalume.core_data.util.Result
 import kotlinx.coroutines.flow.Flow
 
 class PostInteractor : Crud<Post> {
