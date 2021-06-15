@@ -4,8 +4,10 @@ import com.yvkalume.core_data.entity.Post
 import com.yvkalume.core_data.util.Crud
 import com.yvkalume.core_data.util.Result
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class PostInteractor : Crud<Post> {
+class PostInteractor @Inject constructor() : Crud<Post> {
+
     override fun getAll(): Flow<Result<List<Post>>> {
         TODO("Not yet implemented")
     }

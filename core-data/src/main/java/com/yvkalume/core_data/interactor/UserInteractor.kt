@@ -4,8 +4,9 @@ import com.yvkalume.core_data.entity.User
 import com.yvkalume.core_data.util.Crud
 import com.yvkalume.core_data.util.Result
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class UserInteractor : Crud<User> {
+class UserInteractor @Inject constructor(): Crud<User> {
     override fun getAll(): Flow<Result<List<User>>> {
         TODO("Not yet implemented")
     }

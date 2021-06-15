@@ -3,6 +3,7 @@ import com.yvkalume.buildSrc.Deps
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -46,4 +47,7 @@ dependencies {
     implementation(Deps.Kotlin.Coroutines.core)
     implementation(Deps.Kotlin.Coroutines.android)
     implementation(Deps.Kotlin.Coroutines.playService)
+
+    implementation(Deps.Google.Hilt.android)
+    kapt(Deps.Google.Hilt.compiler)
 }

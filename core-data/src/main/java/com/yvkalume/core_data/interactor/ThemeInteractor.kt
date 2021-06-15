@@ -4,8 +4,9 @@ import com.yvkalume.core_data.entity.Theme
 import com.yvkalume.core_data.util.Crud
 import com.yvkalume.core_data.util.Result
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class ThemeInteractor : Crud<Theme> {
+class ThemeInteractor @Inject constructor() : Crud<Theme> {
     override fun getAll(): Flow<Result<List<Theme>>> {
         TODO("Not yet implemented")
     }
