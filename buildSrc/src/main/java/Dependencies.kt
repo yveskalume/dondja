@@ -34,7 +34,7 @@ object Plugins {
         "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0"
 
     object Google {
-        const val playService = "com.google.gms:google-services:4.3.4"
+        const val playService = "com.google.gms:google-services:4.3.8"
         const val firebaseCrashlyticsGradle = "com.google.firebase:firebase-crashlytics-gradle:2.2.0"
         const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Version.hilt}"
     }
@@ -82,7 +82,7 @@ object Deps {
 
 
     object Firebase {
-        const val firebaseBom = "com.google.firebase:firebase-bom:26.4.0"
+        const val firebaseBom = "com.google.firebase:firebase-bom:28.1.0"
         const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
         const val analystics = "com.google.firebase:firebase-analytics-ktx"
         const val auth = "com.google.firebase:firebase-auth-ktx"

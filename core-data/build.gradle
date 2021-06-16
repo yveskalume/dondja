@@ -4,6 +4,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -47,6 +48,11 @@ dependencies {
     implementation(Deps.Kotlin.Coroutines.core)
     implementation(Deps.Kotlin.Coroutines.android)
     implementation(Deps.Kotlin.Coroutines.playService)
+
+    implementation platform(Deps.Firebase.firebaseBom)
+    implementation(Deps.Firebase.firestore)
+    implementation(Deps.Firebase.auth)
+    implementation(Deps.Firebase.storage)
 
     implementation(Deps.Google.Hilt.android)
     kapt(Deps.Google.Hilt.compiler)

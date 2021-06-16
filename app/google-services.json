@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "74999635979",
+    "firebase_url": "https://wijea-project-default-rtdb.firebaseio.com",
+    "project_id": "wijea-project",
+    "storage_bucket": "wijea-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74999635979:android:80b3e23ca213b2bed0670e",
+        "android_client_info": {
+          "package_name": "com.dondja.dondja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74999635979-gvh44dkb5tr5u6n748iledif8qof3jum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSLcX36Mdbuboyh1VRi0n6SdxRyi2_nlI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74999635979-gvh44dkb5tr5u6n748iledif8qof3jum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
