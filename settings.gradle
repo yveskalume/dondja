@@ -1,4 +1,3 @@
-include ':app'
 rootProject.name = "Dondja"
+include ':app'
 include ':core-data'
-include ':core-domain'
