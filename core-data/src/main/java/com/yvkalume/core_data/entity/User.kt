@@ -1,4 +1,7 @@
 package com.yvkalume.core_data.entity
 
-class User {
-}
+data class User(
+    val uid: String = "",
+    val profileUrl: String = "",
+    val displayName: String = ""
+)
