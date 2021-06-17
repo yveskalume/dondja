@@ -8,7 +8,7 @@ object Version {
     const val epoxy = "4.4.0"
     const val mavericks = "2.0.0"
     const val workManager = "2.4.0"
-    const val hilt = "2.31.2-alpha"
+    const val hilt = "2.37"
     const val hiltAndroidX = "1.0.0-alpha03"
     const val firebaseUiVersion = "7.1.1"
     const val lifeCycle = "2.2.0"
