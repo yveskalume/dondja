@@ -8,7 +8,6 @@ import androidx.navigation.fragment.findNavController
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentSignup2Binding
 
-
 class Signup2Fragment : Fragment(R.layout.fragment_signup2) {
     private val binding by viewBinding<FragmentSignup2Binding>()
 
