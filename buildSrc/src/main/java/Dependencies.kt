@@ -244,7 +244,12 @@ object Deps {
 
     const val androidChart = "com.github.PhilJay:MPAndroidChart:v3.1.0"
     const val roundImageView = "com.makeramen:roundedimageview:2.3.0"
-    const val materialDialog = "com.afollestad.material-dialogs:bottomsheets:3.2.1"
+
+    const val materialDialog = "com.afollestad.material-dialogs:bottomsheets:3.3.0"
+    const val datePicker = "com.afollestad.material-dialogs:datetime:3.3.0"
+
+    const val ucrop = "com.github.yalantis:ucrop:2.2.6-native"
+
     const val speedDial = "com.leinardi.android:speed-dial:3.1.1"
     const val dexter = "com.karumi:dexter:6.2.1"
     const val leku = "com.schibstedspain.android:leku:7.2.0"

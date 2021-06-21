@@ -1,10 +1,13 @@
 package com.dondja.dondja.util
 
+import android.graphics.Bitmap
 import android.view.View
 import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.airbnb.epoxy.EpoxyRecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.dondja.dondja.R
 
 @BindingAdapter(value = ["isVisible"])
@@ -17,6 +20,26 @@ fun EpoxyRecyclerView.setUpWithPager(rv: EpoxyRecyclerView) {
     withModels {
 
     }
+}
+
+@BindingAdapter(value = ["setImageRes"], requireAll = true)
+fun ImageView.setImageRes(resId: Int) {
+    setImageResource(resId)
+}
+
+@BindingAdapter(value = ["setImageUrl"], requireAll = false)
+fun ImageView.setImageUrl(url: String?) {
+    if (url != null && url.isNotBlank()) {
+        Glide.with(this.context)
+            .load(url)
+            .apply(RequestOptions().placeholder(android.R.color.darker_gray))
+            .into(this)
+    }
+}
+
+@BindingAdapter(value = ["setBitmap"], requireAll = false)
+fun ImageView.setBitmapImage(bitmap: Bitmap) {
+    setImageBitmap(bitmap)
 }
 
 @BindingAdapter(value = ["setRandomImage"])
