@@ -113,7 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/profileImg"
-                    android:src="@drawable/img5"
+                    android:src="@drawable/avatar"
                     />
                 <ImageView
                     android:id="@+id/btnChoosePic"

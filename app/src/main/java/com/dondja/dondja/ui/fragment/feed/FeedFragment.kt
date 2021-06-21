@@ -12,7 +12,9 @@ import com.dondja.dondja.ui.fragment.feed.feedall.FeedAllFragment
 import com.dondja.dondja.ui.fragment.feed.feedfollowing.FeedFollowingFragment
 import com.dondja.dondja.ui.fragment.feed.feedgroup.FeedGroupFragment
 import com.dondja.dondja.ui.fragment.feed.feedhashtag.FeedHashtagFragment
+import com.dondja.dondja.util.setImageUrl
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
 
 class FeedFragment : Fragment(R.layout.fragment_feed) {
 
@@ -20,10 +22,12 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
 
     private val viewPager by lazy { binding.viewPager }
     private val tabLayout by lazy { binding.tabLayout }
+    private val auth by lazy { FirebaseAuth.getInstance() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpPager()
+        binding.profilePic.setImageUrl(auth.currentUser?.photoUrl.toString())
     }
 
     private fun setUpPager() {

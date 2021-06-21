@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.ArrayAdapter
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
@@ -12,11 +13,15 @@ import com.afollestad.materialdialogs.datetime.datePicker
 import com.afollestad.vvalidator.form
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentSignupBinding
+import com.dondja.dondja.ui.activity.auth.AuthViewModel
 import com.dondja.dondja.util.getFormattedDate
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+@AndroidEntryPoint
 class SignupFragment : Fragment(R.layout.fragment_signup) {
 
+    private val viewModel by activityViewModels<AuthViewModel>()
     private val binding by viewBinding<FragmentSignupBinding>()
     private val birthdayLiveData = MutableLiveData<Date>()
     private val sexeAdapter by lazy {
@@ -54,11 +59,13 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
 
             birthdayLiveData.observe(viewLifecycleOwner) {
                 binding.birthday.setText(it?.getFormattedDate("dd MMM yyyy"))
+                viewModel.user = viewModel.user.copy(birthday = it)
             }
 
             binding.sexe.setAdapter(sexeAdapter)
 
             submitWith(binding.btnNext) {
+                bindDataToUserInViewModel()
                 val direction = SignupFragmentDirections.toSignup2Fragment()
                 findNavController().navigate(direction)
             }
@@ -67,6 +74,15 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
                 findNavController().navigateUp()
             }
         }
+    }
+
+    private fun bindDataToUserInViewModel() {
+        viewModel.user = viewModel.user.copy(
+            firstName = binding.firstname.text.toString(),
+            secondName = binding.secondname.text.toString(),
+            sexe = binding.sexe.text.toString(),
+            birthday = birthdayLiveData.value,
+        )
     }
 
     private fun showDatePicker() {

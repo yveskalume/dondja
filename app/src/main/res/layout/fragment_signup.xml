@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="viewmodel"
+            type="com.dondja.dondja.ui.activity.auth.AuthViewModel" />
     </data>
 
     <ScrollView
@@ -96,7 +98,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/secondnameLayout"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginStart="35dp"
@@ -108,7 +110,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/secondname"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="44dp"
+                    android:text="@{viewmodel.user.secondName}"
                     android:padding="0dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -124,7 +127,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/firstnameLayout"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginStart="35dp"
@@ -136,7 +139,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/firstname"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="44dp"
+                    android:text="@{viewmodel.user.firstName}"
                     android:padding="0dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -152,7 +156,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/sexeLayout"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_marginStart="35dp"
@@ -165,9 +169,10 @@
                 <AutoCompleteTextView
                     android:id="@+id/sexe"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="44dp"
                     android:paddingStart="8dp"
                     android:focusable="false"
+                    android:text="@{viewmodel.user.sexe}"
                     android:inputType="none"
                     android:paddingEnd="8dp"
                     android:padding="0dp"/>
@@ -185,7 +190,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/bithLayout"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginStart="35dp"
@@ -198,8 +203,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/birthday"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="44dp"
                     android:inputType="none"
+                    android:text="@{viewmodel.user.birthday.toString()}"
                     android:focusable="false"
                     android:padding="0dp"/>
             </com.google.android.material.textfield.TextInputLayout>
