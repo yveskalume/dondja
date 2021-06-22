@@ -144,7 +144,6 @@
             android:layout_width="0dp"
             android:layout_height="331dp"
             android:src="@drawable/img2"
-            app:setRandomImage="@{`true`}"
             android:scaleType="centerCrop"
             app:riv_corner_radius="8dp"
             android:onClick="@{onPostClick}"

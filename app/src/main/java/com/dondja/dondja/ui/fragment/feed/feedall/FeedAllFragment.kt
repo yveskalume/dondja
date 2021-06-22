@@ -2,46 +2,61 @@ package com.dondja.dondja.ui.fragment.feed.feedall
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.airbnb.epoxy.Carousel
-import com.airbnb.epoxy.EpoxyController
 import com.airbnb.epoxy.carousel
 import com.dondja.dondja.*
 import com.dondja.dondja.databinding.FragmentFeedAllBinding
 import com.dondja.dondja.ui.fragment.feed.FeedFragmentDirections
-import com.dondja.dondja.util.withModelsFrom
+import com.dondja.dondja.util.ViewState.*
+import com.dondja.dondja.util.showToast
+import com.dondja.dondja.util.ui.withModelsFrom
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
     private val binding by viewBinding<FragmentFeedAllBinding>()
+    private val viewModel by viewModels<FeedAllViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setRecyclerView()
+        observeDataFromViewModel()
     }
 
-    private fun setRecyclerView() {
+    private fun observeDataFromViewModel() {
+        viewModel.data.observe(viewLifecycleOwner) {
+            when(it) {
+                is Loading -> {
+
+                }
+                is Success -> bindData(it.data)
+                is Failure -> {
+                    showToast(it.error.message.toString())
+                }
+            }
+        }
+    }
+
+    private fun bindData(data: FeedAllData) {
         binding.rvFeedAll.withModels {
             headerStoryCarousel {
                 id("stories-header")
             }
             carousel {
                 id("story")
-                withModelsFrom(listOf(1,2,3,4,5)) {
+                withModelsFrom(data.stories) {
                     StoryBindingModel_()
-                            .id(it)
+                            .id(it.uid)
                             .onStoryClick { _ ->
                                 findNavController().navigate(R.id.to_storyViewFragment)
                             }
                 }
             }
-            for (i in 1..6) {
+            for (item in data.posts.withIndex()) {
                 post {
-                    id("post")
+                    id(item.value.uid)
                     onThemeClick { _ ->
                         val direction = FeedFragmentDirections.toThemeFeedFragment()
                         findNavController().navigate(direction)
@@ -52,16 +67,15 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
                     }
                 }
 
-                if(i == 3) {
+                if(item.index == 3) {
                     carousel {
-                        id(i)
+                        id("sugestions-carousel")
                         withModelsFrom(listOf(1,2,3,4,5)) {
                             UserSugestionBindingModel_()
                                     .id(it)
                         }
                     }
                 } else {
-
                     postSeparator {
                         id("separator")
                     }

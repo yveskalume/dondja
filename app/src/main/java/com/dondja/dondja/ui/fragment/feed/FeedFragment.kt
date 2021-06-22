@@ -1,7 +1,6 @@
 package com.dondja.dondja.ui.fragment.feed
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
@@ -12,7 +11,7 @@ import com.dondja.dondja.ui.fragment.feed.feedall.FeedAllFragment
 import com.dondja.dondja.ui.fragment.feed.feedfollowing.FeedFollowingFragment
 import com.dondja.dondja.ui.fragment.feed.feedgroup.FeedGroupFragment
 import com.dondja.dondja.ui.fragment.feed.feedhashtag.FeedHashtagFragment
-import com.dondja.dondja.util.setImageUrl
+import com.dondja.dondja.util.ui.setImageUrl
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 

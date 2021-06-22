@@ -1,4 +1,4 @@
-package com.dondja.dondja.util
+package com.dondja.dondja.util.ui
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView

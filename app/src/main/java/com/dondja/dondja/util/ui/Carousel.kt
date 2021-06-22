@@ -1,4 +1,4 @@
-package com.dondja.dondja.util
+package com.dondja.dondja.util.ui
 
 import com.airbnb.epoxy.CarouselModelBuilder
 import com.airbnb.epoxy.CarouselModel_

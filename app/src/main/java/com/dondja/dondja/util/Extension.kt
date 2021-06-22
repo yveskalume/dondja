@@ -1,13 +1,13 @@
 package com.dondja.dondja.util
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.os.Environment
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.dondja.dondja.util.ui.StoryView
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*

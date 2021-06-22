@@ -2,15 +2,13 @@ package com.dondja.dondja.ui.fragment.discover.foryou
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentForYouBinding
 import com.dondja.dondja.discover
-import com.dondja.dondja.util.GridColumn
+import com.dondja.dondja.util.ui.GridColumn
 
 
 class ForYouFragment : Fragment(R.layout.fragment_for_you) {

@@ -7,4 +7,5 @@ interface Crud<T> {
     fun getOneById(uid: String) : Flow<Result<T>>
     fun updateOneByUid(uid: String) : Flow<Result<Unit>>
     fun deleteOneByUid(uid: String) : Flow<Result<Unit>>
+    fun getAllFromFlowing() : Flow<Result<List<T>>>
 }

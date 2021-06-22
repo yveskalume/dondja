@@ -8,7 +8,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.airbnb.epoxy.Carousel
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val navController by lazy {
         Navigation.findNavController(this,R.id.fragmentHost)

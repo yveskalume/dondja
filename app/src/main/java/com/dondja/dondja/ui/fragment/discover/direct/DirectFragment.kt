@@ -2,18 +2,15 @@ package com.dondja.dondja.ui.fragment.discover.direct
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import androidx.recyclerview.widget.GridLayoutManager
-import com.airbnb.epoxy.carousel
 import com.dondja.dondja.DiscoverForCarouselBindingModel_
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentDirectBinding
 import com.dondja.dondja.discover
 import com.dondja.dondja.headerDiscoverDirect
-import com.dondja.dondja.util.GridColumn
+import com.dondja.dondja.util.ui.GridColumn
 
 class DirectFragment : Fragment(R.layout.fragment_direct) {
     private val binding by viewBinding<FragmentDirectBinding>()

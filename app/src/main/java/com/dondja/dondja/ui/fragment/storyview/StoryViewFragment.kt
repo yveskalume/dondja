@@ -1,14 +1,9 @@
 package com.dondja.dondja.ui.fragment.storyview
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
-import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.LayoutMode
@@ -16,7 +11,7 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.bottomsheets.BottomSheet
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentStoryViewBinding
-import com.dondja.dondja.util.StoryView
+import com.dondja.dondja.util.ui.StoryView
 import com.dondja.dondja.util.setHasStoryNavigationAction
 
 class StoryViewFragment : Fragment(R.layout.fragment_story_view) {

@@ -7,7 +7,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -16,6 +15,7 @@ import com.dondja.dondja.data.util.Result
 import com.dondja.dondja.databinding.FragmentSignup4Binding
 import com.dondja.dondja.ui.activity.auth.AuthViewModel
 import com.dondja.dondja.util.*
+import com.dondja.dondja.util.ui.setImageUrl
 import com.yalantis.ucrop.UCrop
 import com.yalantis.ucrop.UCropActivity
 import dagger.hilt.android.AndroidEntryPoint

@@ -36,7 +36,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline2"/>
 
-        <com.dondja.dondja.util.StoryView
+        <com.dondja.dondja.util.ui.StoryView
             android:id="@+id/storyView"
             android:layout_width="match_parent"
             android:layout_height="3dp"

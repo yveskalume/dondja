@@ -31,4 +31,8 @@ class ThemeInteractor @Inject constructor(private val firestore: FirebaseFiresto
     override fun deleteOneByUid(uid: String): Flow<Result<Unit>> {
         TODO("Not yet implemented")
     }
+
+    override fun getAllFromFlowing(): Flow<Result<List<Theme>>> {
+        TODO("Not yet implemented")
+    }
 }

@@ -1,9 +1,7 @@
-package com.dondja.dondja.util;
+package com.dondja.dondja.util.ui;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;

@@ -34,4 +34,8 @@ class UserInteractor @Inject constructor(
         TODO("Not yet implemented")
     }
 
+    override fun getAllFromFlowing(): Flow<Result<List<User>>> {
+        TODO("Not yet implemented")
+    }
+
 }

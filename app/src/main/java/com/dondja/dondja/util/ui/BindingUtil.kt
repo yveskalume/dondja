@@ -1,4 +1,4 @@
-package com.dondja.dondja.util
+package com.dondja.dondja.util.ui
 
 import android.graphics.Bitmap
 import android.view.View

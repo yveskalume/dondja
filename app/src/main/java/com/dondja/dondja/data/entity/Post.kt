@@ -11,6 +11,7 @@ data class Post (
     val commentsNumber: Int = 0,
     val likes: Int = 0,
     val shares: Int = 0,
+    val followersUid: List<String> = listOf(),
     val likersUid: List<String> = listOf(),
     val commentatorsUid: List<String> = listOf(),
     val isVideo: Boolean = false,
