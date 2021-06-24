@@ -23,44 +23,51 @@
         android:name="com.dondja.dondja.ui.fragment.signup.SignupFragment"
         android:label="SignupFragment" >
         <action
-            android:id="@+id/to_signup2Fragment"
-            app:destination="@id/signup2Fragment" />
+            android:id="@+id/to_signupEmailFragment"
+            app:destination="@id/signupEmailFragment" />
+        <action
+            android:id="@+id/to_signupPhoneFragment"
+            app:destination="@id/signupPhoneFragment" />
     </fragment>
     <fragment
-        android:id="@+id/signup2Fragment"
+        android:id="@+id/signupEmailFragment"
         android:name="com.dondja.dondja.ui.fragment.signup.SignupEmailFragment"
-        android:label="Signup2Fragment" >
+        android:label="SignupEmailFragment" >
         <action
-            android:id="@+id/to_signup3Fragment"
-            app:destination="@id/signup3Fragment" />
+            android:id="@+id/to_signupProfilePictureFragment"
+            app:destination="@id/signupProfilePictureFragment" />
+        <action
+            android:id="@+id/to_signupPhoneFragment"
+            app:destination="@id/signupPhoneFragment" />
     </fragment>
     <fragment
-        android:id="@+id/signup3Fragment"
+        android:id="@+id/signupOtpFragment"
         android:name="com.dondja.dondja.ui.fragment.signup.SignupOtpFragment"
-        android:label="Signup3Fragment" >
+        android:label="SignupOtpFragment" >
         <action
-            android:id="@+id/to_signup4Fragment"
-            app:destination="@id/signup4Fragment" />
+            android:id="@+id/to_signupProfilePictureFragment"
+            app:destination="@id/signupProfilePictureFragment" />
     </fragment>
     <fragment
-        android:id="@+id/signup4Fragment"
+        android:id="@+id/signupProfilePictureFragment"
         android:name="com.dondja.dondja.ui.fragment.signup.SignupProfilePictureFragment"
-        android:label="Signup4Fragment" >
+        android:label="SignupProfilePictureFragment" >
         <action
-            android:id="@+id/to_chooseThemeFragment"
-            app:destination="@id/chooseThemeFragment" />
-        <action
-            android:id="@+id/to_signup5Fragment"
-            app:destination="@id/signup5Fragment" />
+            android:id="@+id/to_signupDetailsFragment"
+            app:destination="@id/signupDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseThemeFragment"
         android:name="com.dondja.dondja.ui.fragment.choosetheme.ChooseThemeFragment"
         android:label="ChooseThemeFragment" />
     <fragment
-        android:id="@+id/signup5Fragment"
+        android:id="@+id/signupDetailsFragment"
         android:name="com.dondja.dondja.ui.fragment.signup.SignupDetailsFragment"
-        android:label="Signup5Fragment" />
+        android:label="SignupDetailsFragment" >
+        <action
+            android:id="@+id/to_chooseThemeFragment"
+            app:destination="@id/chooseThemeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.dondja.dondja.ui.fragment.splash.SplashFragment"
@@ -68,8 +75,16 @@
         <action
             android:id="@+id/to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupPhoneFragment"
+        android:name="com.dondja.dondja.ui.fragment.signup.SignupPhoneFragment"
+        android:label="SignupPhoneFragment" >
         <action
-            android:id="@+id/to_signup3Fragment"
-            app:destination="@id/signup3Fragment" />
+            android:id="@+id/to_signupOtpFragment"
+            app:destination="@id/signupOtpFragment" />
+        <action
+            android:id="@+id/to_signupEmailFragment"
+            app:destination="@id/signupEmailFragment" />
     </fragment>
 </navigation>

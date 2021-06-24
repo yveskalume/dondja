@@ -64,7 +64,7 @@ class SignupProfilePictureFragment : Fragment(R.layout.fragment_signup_profile_p
 
     private fun signUp() {
         viewModel.signUpWithEmailAndPassword()
-        val direction = SignupProfilePictureFragmentDirections.toChooseThemeFragment()
+        val direction = SignupProfilePictureFragmentDirections.toSignupDetailsFragment()
         findNavController().navigate(direction)
     }
 

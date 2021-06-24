@@ -66,7 +66,7 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
 
             submitWith(binding.btnNext) {
                 bindDataToUserInViewModel()
-                val direction = SignupFragmentDirections.toSignup2Fragment()
+                val direction = SignupFragmentDirections.toSignupEmailFragment()
                 findNavController().navigate(direction)
             }
 

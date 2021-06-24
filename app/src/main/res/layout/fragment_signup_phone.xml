@@ -90,11 +90,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:inputType="phone"
                 android:layout_marginStart="48dp"
                 android:layout_marginEnd="48dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="40dp"
-                android:text="Adresse mail"/>
+                android:text="Numéro de téléphone"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailLayout"
                 android:layout_width="match_parent"
@@ -111,7 +112,6 @@
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
-                    android:text="@{viewmodel.user.email}"
                     android:padding="0dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -209,7 +209,7 @@
             </LinearLayout>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtUsePhone"
+                android:id="@+id/txtUseEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -220,7 +220,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/red"
                 android:layout_marginBottom="8dp"
-                android:text="Utiliser mon numéro de téléphone"/>
+                android:text="Utiliser mon adresse E-mail"/>
         </LinearLayout>
 
     </ScrollView>

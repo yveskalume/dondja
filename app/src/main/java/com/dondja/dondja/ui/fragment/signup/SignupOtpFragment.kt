@@ -23,7 +23,7 @@ class SignupOtpFragment : Fragment(R.layout.fragment_signup_otp) {
 
     private fun setUpListener() {
         binding.btnNext.setOnClickListener {
-            val directions = SignupOtpFragmentDirections.toSignup4Fragment()
+            val directions = SignupOtpFragmentDirections.toSignupProfilePictureFragment()
             findNavController().navigate(directions)
         }
 

@@ -1,33 +1,29 @@
 package com.dondja.dondja.ui.fragment.signup
 
 import android.os.Bundle
-import android.view.View
-import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.afollestad.vvalidator.form
 import com.dondja.dondja.R
-import com.dondja.dondja.databinding.FragmentSignupEmailBinding
+import com.dondja.dondja.databinding.FragmentSignupPhoneBinding
 import com.dondja.dondja.ui.activity.auth.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
-class SignupEmailFragment : Fragment(R.layout.fragment_signup_email) {
-    private val binding by viewBinding<FragmentSignupEmailBinding>()
+class SignupPhoneFragment : Fragment(R.layout.fragment_signup_phone) {
+    private val binding by viewBinding<FragmentSignupPhoneBinding>()
+
     private val viewModel by activityViewModels<AuthViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpForm()
         setUpListener()
-    }
-
-    private fun setUpListener() {
-        binding.txtUsePhone.setOnClickListener {
-            findNavController().navigate(SignupEmailFragmentDirections.toSignupPhoneFragment())
-        }
     }
 
     private fun setUpForm() {
@@ -55,6 +51,12 @@ class SignupEmailFragment : Fragment(R.layout.fragment_signup_email) {
         }
     }
 
+    private fun setUpListener() {
+        binding.txtUseEmail.setOnClickListener {
+            findNavController().navigate(SignupPhoneFragmentDirections.toSignupEmailFragment())
+        }
+    }
+
     private fun bindToViewModel() {
         if (binding.password.text.toString() != binding.passwordConfirm.text.toString()) {
             binding.passwordConfirmLayout.error = "Mot de passe ne correspond pas"
@@ -65,7 +67,7 @@ class SignupEmailFragment : Fragment(R.layout.fragment_signup_email) {
             email = binding.email.text.toString(),
             password = binding.password.text.toString(),
         )
-        val directions = SignupEmailFragmentDirections.toSignupProfilePictureFragment()
+        val directions = SignupPhoneFragmentDirections.toSignupOtpFragment()
         findNavController().navigate(directions)
     }
 }
