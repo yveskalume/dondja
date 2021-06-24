@@ -6,6 +6,7 @@ import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.vvalidator.form
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentSignupEmailBinding
@@ -46,7 +47,7 @@ class SignupEmailFragment : Fragment(R.layout.fragment_signup_email) {
             }
 
             submitWith(binding.btnNext) {
-                bindToViewModel()
+                showDialog()
             }
 
             binding.btnBack.setOnClickListener {
@@ -55,7 +56,19 @@ class SignupEmailFragment : Fragment(R.layout.fragment_signup_email) {
         }
     }
 
-    private fun bindToViewModel() {
+    private fun showDialog() {
+        MaterialDialog(requireContext()).show {
+            message(text = "Pour nous assurer que l’e-mail ${binding.email.text} est bien le votre, nous allons vous envoyer un mail contenant un code de validations")
+            negativeButton(text = "Modifier") {
+                this.dismiss()
+            }
+            positiveButton(text = "Ok") {
+                bindToViewModelAndSignUp()
+            }
+        }
+    }
+
+    private fun bindToViewModelAndSignUp() {
         if (binding.password.text.toString() != binding.passwordConfirm.text.toString()) {
             binding.passwordConfirmLayout.error = "Mot de passe ne correspond pas"
             binding.passwordLayout.error = "Mot de passe ne correspond pas"
@@ -65,6 +78,7 @@ class SignupEmailFragment : Fragment(R.layout.fragment_signup_email) {
             email = binding.email.text.toString(),
             password = binding.password.text.toString(),
         )
+        viewModel.signUpWithEmailAndPassword()
         val directions = SignupEmailFragmentDirections.toSignupProfilePictureFragment()
         findNavController().navigate(directions)
     }

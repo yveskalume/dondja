@@ -9,6 +9,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.dondja.dondja.data.entity.User
 import com.dondja.dondja.data.firebaseconstant.FirebaseStorageReferences
 import com.dondja.dondja.data.firebaseconstant.FirestoreReferences
+import com.google.firebase.auth.ktx.actionCodeSettings
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -22,6 +23,7 @@ class AccountInteractor @Inject constructor (
 
     suspend fun signUpWithEmailAndPassword(email: String, password: String): String {
         auth.createUserWithEmailAndPassword(email,password).await()
+        sendConfirmationEmail(email)
         return auth.currentUser!!.uid
     }
 
@@ -41,10 +43,20 @@ class AccountInteractor @Inject constructor (
             .document(user.uid)
             .set(user)
             .await()
-        if (auth.currentUser?.photoUrl.toString() == user.profileUrl) return
+//        if (auth.currentUser?.photoUrl.toString() == user.profileUrl) return
+//        val builder = UserProfileChangeRequest.Builder()
+//            .setDisplayName(user.displayName)
+//            .setPhotoUri(Uri.parse(user.profileUrl))
+//            .build()
+//        auth.currentUser?.updateProfile(builder)
+    }
+
+    suspend fun updateUserProfilePicture(url: String) {
+        firestore.document("${ref.users}/${auth.currentUser!!.uid}")
+            .update(User::profileUrl.name,url).await()
+
         val builder = UserProfileChangeRequest.Builder()
-            .setDisplayName(user.displayName)
-            .setPhotoUri(Uri.parse(user.profileUrl))
+            .setPhotoUri(Uri.parse(url))
             .build()
         auth.currentUser?.updateProfile(builder)
     }
@@ -53,8 +65,15 @@ class AccountInteractor @Inject constructor (
         auth.sendPasswordResetEmail(email).await()
     }
 
-    suspend fun sendConfirmationEmail(email: String) {
-
+    private fun sendConfirmationEmail(email: String) {
+        val actionCodeSettings = actionCodeSettings {
+            setAndroidPackageName(
+                "com.donja.donja",
+                true,
+                "1"
+            )
+        }
+        auth.sendSignInLinkToEmail(email,actionCodeSettings)
     }
 
     suspend fun updatePassword(password: String) {

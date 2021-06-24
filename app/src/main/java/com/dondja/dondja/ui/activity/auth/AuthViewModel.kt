@@ -1,5 +1,6 @@
 package com.dondja.dondja.ui.activity.auth
 
+import android.net.Uri
 import androidx.core.net.toUri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -46,8 +47,19 @@ class AuthViewModel @Inject constructor(
     fun signUpWithEmailAndPassword() = viewModelScope.launch {
         Log("$user")
         val userUid = interactor.signUpWithEmailAndPassword(user.email,user.password)
-        val userProfile = interactor.uploadProfilePicture(user.profileUrl.toUri())
-        val user = user.copy(uid = userUid,profileUrl = userProfile)
+        val user = user.copy(uid = userUid)
         saveUserInfo(user)
+    }
+
+    fun uploadUserProfile(uri: Uri) = viewModelScope.launch {
+        try {
+            imageUploadingState.postValue(Result.Loading)
+            val profileUrl = interactor.uploadProfilePicture(uri)
+            interactor.updateUserProfilePicture(profileUrl)
+            imageUploadingState.postValue(Result.Success(user.profileUrl))
+        } catch (e : Exception) {
+            Log(e.message.toString())
+            imageUploadingState.postValue(Result.Error(e))
+        }
     }
 }

@@ -33,8 +33,13 @@ class SignupProfilePictureFragment : Fragment(R.layout.fragment_signup_profile_p
     }
 
     private fun setUpListener() {
+        binding.btnChoosePic.setOnClickListener {
+            pickImage()
+        }
+
         binding.btnNext.setOnClickListener {
             if (profileUri != null) {
+                viewModel.uploadUserProfile(profileUri!!)
                 viewModel.imageUploadingState.observe(viewLifecycleOwner) { result ->
                     when(result) {
                         is Result.Loading -> {
@@ -43,7 +48,7 @@ class SignupProfilePictureFragment : Fragment(R.layout.fragment_signup_profile_p
                             it.isEnabled = false
                         }
                         is Result.Success -> {
-                            signUp()
+                            next()
                         }
 
                         is Result.Error -> {
@@ -52,18 +57,12 @@ class SignupProfilePictureFragment : Fragment(R.layout.fragment_signup_profile_p
                     }
                 }
             } else {
-                signUp()
+                next()
             }
-
-        }
-
-        binding.btnChoosePic.setOnClickListener {
-            pickImage()
         }
     }
 
-    private fun signUp() {
-        viewModel.signUpWithEmailAndPassword()
+    private fun next() {
         val direction = SignupProfilePictureFragmentDirections.toSignupDetailsFragment()
         findNavController().navigate(direction)
     }
@@ -83,7 +82,7 @@ class SignupProfilePictureFragment : Fragment(R.layout.fragment_signup_profile_p
 
     private fun bindInfo(uri: Uri?) {
         Log("imageUrl : $uri")
-        viewModel.user = viewModel.user.copy(profileUrl = uri.toString())
+        profileUri = uri
         binding.profileImg.setImageUrl(uri.toString())
     }
 

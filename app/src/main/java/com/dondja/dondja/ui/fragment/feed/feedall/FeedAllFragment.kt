@@ -12,17 +12,23 @@ import com.dondja.dondja.databinding.FragmentFeedAllBinding
 import com.dondja.dondja.ui.fragment.feed.FeedFragmentDirections
 import com.dondja.dondja.util.ViewState.*
 import com.dondja.dondja.util.showToast
+import com.dondja.dondja.util.ui.ThemeClickListener
 import com.dondja.dondja.util.ui.withModelsFrom
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
+class FeedAllFragment : Fragment(R.layout.fragment_feed_all), ThemeClickListener {
     private val binding by viewBinding<FragmentFeedAllBinding>()
     private val viewModel by viewModels<FeedAllViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeDataFromViewModel()
+    }
+
+    override fun onThemeClick(themeName: String) {
+        val direction = FeedFragmentDirections.toThemeFeedFragment()
+        findNavController().navigate(direction)
     }
 
     private fun observeDataFromViewModel() {
@@ -57,10 +63,7 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all) {
             for (item in data.posts.withIndex()) {
                 post {
                     id(item.value.uid)
-                    onThemeClick { _ ->
-                        val direction = FeedFragmentDirections.toThemeFeedFragment()
-                        findNavController().navigate(direction)
-                    }
+                    themeClickListener(this@FeedAllFragment)
                     onPostClick { _ ->
                         val direction = FeedFragmentDirections.toPostViewFragment()
                         findNavController().navigate(direction)
