@@ -3,21 +3,19 @@ package com.dondja.dondja.ui.fragment.signup
 import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.afollestad.vvalidator.form
 import com.dondja.dondja.R
-import com.dondja.dondja.databinding.FragmentSignup2Binding
+import com.dondja.dondja.databinding.FragmentSignupEmailBinding
 import com.dondja.dondja.ui.activity.auth.AuthViewModel
-import com.dondja.dondja.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class Signup2Fragment : Fragment(R.layout.fragment_signup2) {
-    private val binding by viewBinding<FragmentSignup2Binding>()
+class SignupEmailFragment : Fragment(R.layout.fragment_signup_email) {
+    private val binding by viewBinding<FragmentSignupEmailBinding>()
     private val viewModel by activityViewModels<AuthViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,16 +49,16 @@ class Signup2Fragment : Fragment(R.layout.fragment_signup2) {
     }
 
     private fun bindToViewModel() {
-//        if (binding.password.editableText != binding.passwordConfirm.editableText) {
-//            binding.passwordConfirmLayout.error = "Mot de passe ne correspond pas"
-//            binding.passwordLayout.error = "Mot de passe ne correspond pas"
-//            return
-//        }
+        if (binding.password.text.toString() != binding.passwordConfirm.text.toString()) {
+            binding.passwordConfirmLayout.error = "Mot de passe ne correspond pas"
+            binding.passwordLayout.error = "Mot de passe ne correspond pas"
+            return
+        }
         viewModel.user = viewModel.user.copy(
             email = binding.email.text.toString(),
             password = binding.password.text.toString(),
         )
-        val directions = Signup2FragmentDirections.toSignup3Fragment()
+        val directions = SignupEmailFragmentDirections.toSignup3Fragment()
         findNavController().navigate(directions)
     }
 }

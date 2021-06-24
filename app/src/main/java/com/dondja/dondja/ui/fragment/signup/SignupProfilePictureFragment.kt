@@ -12,7 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.dondja.dondja.R
 import com.dondja.dondja.data.util.Result
-import com.dondja.dondja.databinding.FragmentSignup4Binding
+import com.dondja.dondja.databinding.FragmentSignupProfilePictureBinding
 import com.dondja.dondja.ui.activity.auth.AuthViewModel
 import com.dondja.dondja.util.*
 import com.dondja.dondja.util.ui.setImageUrl
@@ -21,8 +21,8 @@ import com.yalantis.ucrop.UCropActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class Signup4Fragment : Fragment(R.layout.fragment_signup4) {
-    private val binding by viewBinding<FragmentSignup4Binding>()
+class SignupProfilePictureFragment : Fragment(R.layout.fragment_signup_profile_picture) {
+    private val binding by viewBinding<FragmentSignupProfilePictureBinding>()
     private val viewModel by activityViewModels<AuthViewModel>()
 
 
@@ -64,7 +64,7 @@ class Signup4Fragment : Fragment(R.layout.fragment_signup4) {
 
     private fun signUp() {
         viewModel.signUpWithEmailAndPassword()
-        val direction = Signup4FragmentDirections.toChooseThemeFragment()
+        val direction = SignupProfilePictureFragmentDirections.toChooseThemeFragment()
         findNavController().navigate(direction)
     }
 

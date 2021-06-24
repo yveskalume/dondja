@@ -53,6 +53,10 @@ class AccountInteractor @Inject constructor (
         auth.sendPasswordResetEmail(email).await()
     }
 
+    suspend fun sendConfirmationEmail(email: String) {
+
+    }
+
     suspend fun updatePassword(password: String) {
         auth.currentUser!!.updatePassword(password).await()
     }

@@ -95,4 +95,5 @@ dependencies {
     implementation(Deps.ucrop)
     implementation(Deps.vvalidator)
     implementation 'com.revosleap.layout:blurrylayout:2.0.0'
+    implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.2'
 }

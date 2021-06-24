@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/auth_nav_graph"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/welcomeFragment"
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/signup2Fragment"
-        android:name="com.dondja.dondja.ui.fragment.signup.Signup2Fragment"
+        android:name="com.dondja.dondja.ui.fragment.signup.SignupEmailFragment"
         android:label="Signup2Fragment" >
         <action
             android:id="@+id/to_signup3Fragment"
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/signup3Fragment"
-        android:name="com.dondja.dondja.ui.fragment.signup.Signup3Fragment"
+        android:name="com.dondja.dondja.ui.fragment.signup.SignupOtpFragment"
         android:label="Signup3Fragment" >
         <action
             android:id="@+id/to_signup4Fragment"
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/signup4Fragment"
-        android:name="com.dondja.dondja.ui.fragment.signup.Signup4Fragment"
+        android:name="com.dondja.dondja.ui.fragment.signup.SignupProfilePictureFragment"
         android:label="Signup4Fragment" >
         <action
             android:id="@+id/to_chooseThemeFragment"
@@ -59,6 +59,17 @@
         android:label="ChooseThemeFragment" />
     <fragment
         android:id="@+id/signup5Fragment"
-        android:name="com.dondja.dondja.ui.fragment.signup.Signup5Fragment"
+        android:name="com.dondja.dondja.ui.fragment.signup.SignupDetailsFragment"
         android:label="Signup5Fragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dondja.dondja.ui.fragment.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+        <action
+            android:id="@+id/to_signup3Fragment"
+            app:destination="@id/signup3Fragment" />
+    </fragment>
 </navigation>

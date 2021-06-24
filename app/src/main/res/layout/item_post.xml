@@ -8,14 +8,17 @@
             name="height"
             type="String" />
         <variable
+            name="post"
+            type="com.dondja.dondja.data.entity.Post" />
+        <variable
             name="onOptionClick"
             type="android.view.View.OnClickListener" />
         <variable
             name="onPostClick"
             type="android.view.View.OnClickListener" />
         <variable
-            name="onThemeClick"
-            type="android.view.View.OnClickListener" />
+            name="themeClickListener"
+            type="com.dondja.dondja.util.ui.ThemeClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -99,8 +102,10 @@
             android:id="@+id/tags"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
             app:chipSpacing="5dp"
+            app:setThemes="@{post.themes}"
+            app:themeClickListener="@{themeClickListener}"
+            app:singleSelection="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/profile">
@@ -109,7 +114,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:chipBackgroundColor="#F1F1F1"
-                android:onClick="@{onThemeClick}"
                 android:text="Nature" />
 
 
@@ -207,7 +211,7 @@
                 android:layout_marginEnd="4dp"
                 android:layout_weight="0"
                 android:background="#FFFFFF"
-                android:tint="#747474"
+                app:tint="#747474"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_comment"
                 app:layout_constraintEnd_toStartOf="@id/guideline50"

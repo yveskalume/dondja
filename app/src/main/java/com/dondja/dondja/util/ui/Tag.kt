@@ -8,22 +8,21 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
 @BindingAdapter("setThemes","themeClickListener")
-fun ChipGroup.setThemes(themes: List<Theme>,themeClickListener: ThemeClickListener) {
+fun ChipGroup.setThemes(themes: List<String>,themeClickListener: ThemeClickListener) {
     for (item in themes) {
         val chip = Chip(this.context).apply {
-            text = item.name
+            text = item
             isCheckable = true
             isClickable = true
 
-            setOnCheckedChangeListener { buttonView, isChecked ->
-                themeClickListener.onThemeClick(themes[buttonView.id])
+            setOnCheckedChangeListener { buttonView, _ ->
+                themeClickListener.onThemeClick(buttonView.text.toString())
             }
         }
         addView(chip)
     }
-
 }
 
 interface ThemeClickListener {
-    fun onThemeClick(theme: Theme)
+    fun onThemeClick(themeName: String)
 }

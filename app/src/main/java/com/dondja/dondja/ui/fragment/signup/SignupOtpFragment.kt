@@ -2,20 +2,18 @@ package com.dondja.dondja.ui.fragment.signup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.dondja.dondja.R
-import com.dondja.dondja.databinding.FragmentSignup3Binding
+import com.dondja.dondja.databinding.FragmentSignupOtpBinding
 import com.dondja.dondja.ui.activity.auth.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class Signup3Fragment : Fragment(R.layout.fragment_signup3) {
-    private val binding by viewBinding<FragmentSignup3Binding>()
+class SignupOtpFragment : Fragment(R.layout.fragment_signup_otp) {
+    private val binding by viewBinding<FragmentSignupOtpBinding>()
     private val viewModel by activityViewModels<AuthViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -25,7 +23,7 @@ class Signup3Fragment : Fragment(R.layout.fragment_signup3) {
 
     private fun setUpListener() {
         binding.btnNext.setOnClickListener {
-            val directions = Signup3FragmentDirections.toSignup4Fragment()
+            val directions = SignupOtpFragmentDirections.toSignup4Fragment()
             findNavController().navigate(directions)
         }
 
