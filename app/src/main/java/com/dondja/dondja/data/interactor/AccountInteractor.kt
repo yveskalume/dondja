@@ -67,11 +67,14 @@ class AccountInteractor @Inject constructor (
 
     private fun sendConfirmationEmail(email: String) {
         val actionCodeSettings = actionCodeSettings {
+            url = "dondja.com"
             setAndroidPackageName(
                 "com.donja.donja",
                 true,
                 "1"
             )
+            handleCodeInApp = true
+            dynamicLinkDomain = "wijea"
         }
         auth.sendSignInLinkToEmail(email,actionCodeSettings)
     }

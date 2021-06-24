@@ -23,22 +23,12 @@ class AuthViewModel @Inject constructor(
     var user = User()
 
     val imageUploadingState = MutableLiveData<Result<String>>()
+    val signUpFlowState = MutableLiveData<Result<Unit>>()
 
     fun log() {
         Log("user $user")
     }
 
-//    fun uploadProfilePic(uri: Uri) = viewModelScope.launch {
-//        imageUploadingState.postValue(Result.Loading)
-//        user = user.copy(profileUrl = interactor.uploadProfilePicture(uri))
-//        imageUploadingState.postValue(Result.Success(user.profileUrl))
-//        try {
-
-//        } catch (e : Exception) {
-//            Log(e.message.toString())
-//            imageUploadingState.postValue(Result.Error(e))
-//        }
-//    }
 
     private suspend fun saveUserInfo(user: User) {
       interactor.saveUserInfo(user)
@@ -46,9 +36,16 @@ class AuthViewModel @Inject constructor(
 
     fun signUpWithEmailAndPassword() = viewModelScope.launch {
         Log("$user")
-        val userUid = interactor.signUpWithEmailAndPassword(user.email,user.password)
-        val user = user.copy(uid = userUid)
-        saveUserInfo(user)
+        try {
+            signUpFlowState.postValue(Result.Loading)
+            val userUid = interactor.signUpWithEmailAndPassword(user.email,user.password)
+            val user = user.copy(uid = userUid)
+            saveUserInfo(user)
+            signUpFlowState.postValue(Result.Success(Unit))
+        } catch (e: Exception) {
+            Log(e.toString())
+            signUpFlowState.postValue(Result.Error(e))
+        }
     }
 
     fun uploadUserProfile(uri: Uri) = viewModelScope.launch {
@@ -62,4 +59,16 @@ class AuthViewModel @Inject constructor(
             imageUploadingState.postValue(Result.Error(e))
         }
     }
+
+    //    fun uploadProfilePic(uri: Uri) = viewModelScope.launch {
+//        imageUploadingState.postValue(Result.Loading)
+//        user = user.copy(profileUrl = interactor.uploadProfilePicture(uri))
+//        imageUploadingState.postValue(Result.Success(user.profileUrl))
+//        try {
+
+//        } catch (e : Exception) {
+//            Log(e.message.toString())
+//            imageUploadingState.postValue(Result.Error(e))
+//        }
+//    }
 }
