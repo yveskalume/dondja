@@ -12,7 +12,13 @@ import com.afollestad.vvalidator.form
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentSignupPhoneBinding
 import com.dondja.dondja.ui.activity.auth.AuthViewModel
+import com.google.firebase.FirebaseException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthOptions
+import com.google.firebase.auth.PhoneAuthProvider
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
 class SignupPhoneFragment : Fragment(R.layout.fragment_signup_phone) {
@@ -26,10 +32,31 @@ class SignupPhoneFragment : Fragment(R.layout.fragment_signup_phone) {
         setUpListener()
     }
 
+
+    private fun setUpListener() {
+        binding.txtUseEmail.setOnClickListener {
+            findNavController().navigate(SignupPhoneFragmentDirections.toSignupEmailFragment())
+        }
+    }
+
+    private fun bindToViewModel() {
+        if (binding.password.text.toString() != binding.passwordConfirm.text.toString()) {
+            binding.passwordConfirmLayout.error = "Mot de passe ne correspond pas"
+            binding.passwordLayout.error = "Mot de passe ne correspond pas"
+            return
+        }
+        viewModel.user = viewModel.user.copy(
+            phoneNumber = binding.phone.text.toString(),
+            password = binding.password.text.toString(),
+        )
+        val directions = SignupPhoneFragmentDirections.toSignupOtpFragment()
+        findNavController().navigate(directions)
+    }
+
     private fun setUpForm() {
         form {
             inputLayout(binding.emailLayout) {
-                isEmail()
+                isNumber()
             }
 
             inputLayout(binding.passwordLayout) {
@@ -51,23 +78,4 @@ class SignupPhoneFragment : Fragment(R.layout.fragment_signup_phone) {
         }
     }
 
-    private fun setUpListener() {
-        binding.txtUseEmail.setOnClickListener {
-            findNavController().navigate(SignupPhoneFragmentDirections.toSignupEmailFragment())
-        }
-    }
-
-    private fun bindToViewModel() {
-        if (binding.password.text.toString() != binding.passwordConfirm.text.toString()) {
-            binding.passwordConfirmLayout.error = "Mot de passe ne correspond pas"
-            binding.passwordLayout.error = "Mot de passe ne correspond pas"
-            return
-        }
-        viewModel.user = viewModel.user.copy(
-            email = binding.email.text.toString(),
-            password = binding.password.text.toString(),
-        )
-        val directions = SignupPhoneFragmentDirections.toSignupOtpFragment()
-        findNavController().navigate(directions)
-    }
 }

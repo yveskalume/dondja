@@ -53,6 +53,7 @@ class SignupProfilePictureFragment : Fragment(R.layout.fragment_signup_profile_p
 
                         is Result.Error -> {
                             showToast("Erreur")
+                            Log(result.exception.toString())
                         }
                     }
                 }

@@ -10,6 +10,10 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -22,6 +26,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "ADV_KEY", apikeyProperties['Android_Device_Verification'])
     }
 
     buildTypes {
@@ -81,6 +87,8 @@ dependencies {
     implementation(Deps.Firebase.firestore)
     implementation(Deps.Firebase.auth)
     implementation(Deps.Firebase.storage)
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
 
     implementation(Deps.AndroidX.viewPager2)
 

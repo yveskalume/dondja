@@ -85,15 +85,20 @@
                 android:text="Saisissez le code de validation à six chiffres pour confirmer que vous avez bien recu le code"/>
 
             <com.mukesh.OtpView
+                android:id="@+id/code"
+                style="@style/OtpWidget.OtpView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:OtpItemCount="6"
-                app:OtpItemHeight="2dp"
+                android:textColor="@color/red"
+                android:layout_gravity="center"
+                android:gravity="center"
                 app:OtpViewType="line"
+                android:inputType="number"
                 app:OtpLineColor="#A8A8A8"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginTop="60dp"/>
+                android:layout_marginTop="36dp"/>
 
 
             <LinearLayout

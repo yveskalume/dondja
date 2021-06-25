@@ -1,16 +1,15 @@
 package com.dondja.dondja.data.interactor
 
 import android.net.Uri
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.dondja.dondja.data.entity.User
 import com.dondja.dondja.data.firebaseconstant.FirebaseStorageReferences
 import com.dondja.dondja.data.firebaseconstant.FirestoreReferences
+import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.actionCodeSettings
 import kotlinx.coroutines.tasks.await
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class AccountInteractor @Inject constructor (
@@ -43,12 +42,11 @@ class AccountInteractor @Inject constructor (
             .document(user.uid)
             .set(user)
             .await()
-//        if (auth.currentUser?.photoUrl.toString() == user.profileUrl) return
-//        val builder = UserProfileChangeRequest.Builder()
-//            .setDisplayName(user.displayName)
-//            .setPhotoUri(Uri.parse(user.profileUrl))
-//            .build()
-//        auth.currentUser?.updateProfile(builder)
+        if (auth.currentUser?.photoUrl.toString() == user.profileUrl) return
+        val builder = UserProfileChangeRequest.Builder()
+            .setDisplayName("${user.firstName} ${user.secondName}")
+            .build()
+        auth.currentUser?.updateProfile(builder)
     }
 
     suspend fun updateUserProfilePicture(url: String) {
@@ -67,7 +65,7 @@ class AccountInteractor @Inject constructor (
 
     private fun sendConfirmationEmail(email: String) {
         val actionCodeSettings = actionCodeSettings {
-            url = "dondja.com"
+            url = "https://dondja.com"
             setAndroidPackageName(
                 "com.donja.donja",
                 true,
@@ -77,6 +75,11 @@ class AccountInteractor @Inject constructor (
             dynamicLinkDomain = "wijea"
         }
         auth.sendSignInLinkToEmail(email,actionCodeSettings)
+    }
+
+    suspend fun signUpWithPhoneNumber(credential: PhoneAuthCredential): String {
+        auth.signInWithCredential(credential).await()
+        return auth.currentUser!!.uid
     }
 
     suspend fun updatePassword(password: String) {

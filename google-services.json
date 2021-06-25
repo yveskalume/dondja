@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "74999635979-ji9mhu3u6q2g5delr4f13u3p03j54kfk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dondja.dondja",
+            "certificate_hash": "4de3cdefc8b42d22cacd96abf933e8b33579da97"
+          }
+        },
+        {
           "client_id": "74999635979-gvh44dkb5tr5u6n748iledif8qof3jum.apps.googleusercontent.com",
           "client_type": 3
         }

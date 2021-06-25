@@ -109,9 +109,10 @@
                 app:boxCornerRadiusBottomEnd="36dp"
                 app:boxCornerRadiusBottomStart="36dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email"
+                    android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
+                    android:inputType="phone"
                     android:padding="0dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
