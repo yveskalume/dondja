@@ -49,6 +49,7 @@
                 android:layout_marginTop="94dp"
                 android:text="Adresse mail ou Téléphone"/>
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailAndPhoneLayout"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 app:boxStrokeColor="@color/black"
@@ -60,6 +61,7 @@
                 app:boxCornerRadiusBottomEnd="36dp"
                 app:boxCornerRadiusBottomStart="36dp">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailAndPhone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="0dp"/>
@@ -75,6 +77,7 @@
                 android:layout_marginTop="24dp"
                 android:text="Mot de passe"/>
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordLayout"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 app:boxStrokeColor="@color/black"
@@ -86,6 +89,7 @@
                 app:boxCornerRadiusBottomEnd="36dp"
                 app:boxCornerRadiusBottomStart="36dp">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="0dp"/>
