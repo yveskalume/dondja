@@ -29,8 +29,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView20"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -45,23 +45,34 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageView8" />
 
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:dotsColor="#eeeeee"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewpager"
+                app:selectedDotColor="@color/red" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="135dp"
+                android:layout_marginTop="64dp"
                 android:layout_marginEnd="32dp"
                 android:backgroundTint="@color/white"
+                android:stateListAnimator="@null"
                 android:text="Log in"
                 android:textAllCaps="false"
-                app:cornerRadius="36dp"
-                android:stateListAnimator="@null"
-                app:elevation="0dp"
                 android:textColor="@color/red"
+                app:cornerRadius="36dp"
+                app:elevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/materialTextView20"
+                app:layout_constraintTop_toBottomOf="@id/dot"
                 app:strokeColor="#000000"
                 app:strokeWidth="0.2dp" />
 

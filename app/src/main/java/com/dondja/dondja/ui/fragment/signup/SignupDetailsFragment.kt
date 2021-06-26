@@ -10,16 +10,19 @@ import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentSignupDetailsBinding
 import com.dondja.dondja.ui.activity.MainActivity
 import com.dondja.dondja.ui.activity.auth.AuthViewModel
+import com.dondja.dondja.util.ui.setImageUrl
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SignupDetailsFragment : Fragment(R.layout.fragment_signup_details) {
     private val viewModel by activityViewModels<AuthViewModel>()
     private val binding by viewBinding<FragmentSignupDetailsBinding>()
-
+    private val currentUser by lazy { FirebaseAuth.getInstance().currentUser }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.circleImageView12.setImageUrl(currentUser?.photoUrl.toString())
         binding.btnNext.setOnClickListener {
             startActivity(Intent(requireContext(),MainActivity::class.java))
         }

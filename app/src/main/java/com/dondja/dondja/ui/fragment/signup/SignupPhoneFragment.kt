@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.vvalidator.form
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentSignupPhoneBinding
@@ -39,12 +40,20 @@ class SignupPhoneFragment : Fragment(R.layout.fragment_signup_phone) {
         }
     }
 
-    private fun bindToViewModel() {
-        if (binding.password.text.toString() != binding.passwordConfirm.text.toString()) {
-            binding.passwordConfirmLayout.error = "Mot de passe ne correspond pas"
-            binding.passwordLayout.error = "Mot de passe ne correspond pas"
-            return
+    private fun showDialog() {
+        MaterialDialog(requireContext()).show {
+            message(text = "Pour nous assurer que le numero ${binding.phone.text} est bien le votre, nous allons vous envoyer un mail contenant un code de validations")
+            negativeButton(text = "Modifier") {
+                this.dismiss()
+            }
+            positiveButton(text = "Ok") {
+                bindToViewModel()
+            }
         }
+    }
+
+    private fun bindToViewModel() {
+
         viewModel.user = viewModel.user.copy(
             phoneNumber = binding.phone.text.toString(),
             password = binding.password.text.toString(),
@@ -69,7 +78,12 @@ class SignupPhoneFragment : Fragment(R.layout.fragment_signup_phone) {
             }
 
             submitWith(binding.btnNext) {
-                bindToViewModel()
+                if (binding.password.text.toString() != binding.passwordConfirm.text.toString()) {
+                    binding.passwordConfirmLayout.error = "Mot de passe ne correspond pas"
+                    binding.passwordLayout.error = "Mot de passe ne correspond pas"
+                    return@submitWith
+                }
+                showDialog()
             }
 
             binding.btnBack.setOnClickListener {

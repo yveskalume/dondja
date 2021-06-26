@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import android.viewbinding.library.fragment.viewBinding
+import androidx.navigation.fragment.findNavController
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentChooseThemeBinding
 import com.dondja.dondja.ui.activity.MainActivity
@@ -19,7 +20,8 @@ class ChooseThemeFragment : Fragment(R.layout.fragment_choose_theme) {
 
     private fun setUpListener() {
         binding.btnNext.setOnClickListener {
-            startActivity(Intent(requireContext(),MainActivity::class.java))
+           val directions = ChooseThemeFragmentDirections.toSignupDetailsFragment()
+            findNavController().navigate(directions)
         }
     }
 }

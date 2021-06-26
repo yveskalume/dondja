@@ -53,21 +53,21 @@
         android:name="com.dondja.dondja.ui.fragment.signup.SignupProfilePictureFragment"
         android:label="SignupProfilePictureFragment" >
         <action
-            android:id="@+id/to_signupDetailsFragment"
-            app:destination="@id/signupDetailsFragment" />
+            android:id="@+id/to_chooseThemeFragment"
+            app:destination="@id/chooseThemeFragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseThemeFragment"
         android:name="com.dondja.dondja.ui.fragment.choosetheme.ChooseThemeFragment"
-        android:label="ChooseThemeFragment" />
+        android:label="ChooseThemeFragment" >
+        <action
+            android:id="@+id/to_signupDetailsFragment"
+            app:destination="@id/signupDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signupDetailsFragment"
         android:name="com.dondja.dondja.ui.fragment.signup.SignupDetailsFragment"
-        android:label="SignupDetailsFragment" >
-        <action
-            android:id="@+id/to_chooseThemeFragment"
-            app:destination="@id/chooseThemeFragment" />
-    </fragment>
+        android:label="SignupDetailsFragment" />
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.dondja.dondja.ui.fragment.splash.SplashFragment"

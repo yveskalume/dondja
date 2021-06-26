@@ -64,7 +64,7 @@ class SignupProfilePictureFragment : Fragment(R.layout.fragment_signup_profile_p
     }
 
     private fun next() {
-        val direction = SignupProfilePictureFragmentDirections.toSignupDetailsFragment()
+        val direction = SignupProfilePictureFragmentDirections.toChooseThemeFragment()
         findNavController().navigate(direction)
     }
 

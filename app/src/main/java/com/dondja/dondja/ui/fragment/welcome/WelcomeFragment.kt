@@ -9,6 +9,7 @@ import android.viewbinding.library.fragment.viewBinding
 import androidx.navigation.fragment.findNavController
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentWelcomeBinding
+import com.dondja.dondja.ui.adapter.WelcomeTextPagerAdapter
 
 class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
     private val binding by viewBinding<FragmentWelcomeBinding>()
@@ -16,6 +17,13 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpListener()
+        setUpPager()
+    }
+
+    private fun setUpPager() {
+        val pager = binding.viewpager
+        pager.adapter = WelcomeTextPagerAdapter()
+        binding.dot.setViewPager2(pager)
     }
 
     private fun setUpListener() {
