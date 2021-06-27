@@ -30,6 +30,11 @@ class AccountInteractor @Inject constructor (
         return auth.signInWithEmailAndPassword(email,password).await().user
     }
 
+    suspend fun signInWithPhoneNumber(phoneNumber: String,password: String) : FirebaseUser? {
+        val concatenatedPhoneNumber = "$phoneNumber@dondja.com".trim()
+        return auth.signInWithEmailAndPassword(concatenatedPhoneNumber,password).await().user
+    }
+
     suspend fun uploadProfilePicture(profileUri: Uri): String {
         val uploadTask = storage.getReference(FirebaseStorageReferences.profile)
             .child(auth.currentUser!!.uid)
@@ -77,8 +82,9 @@ class AccountInteractor @Inject constructor (
         auth.sendSignInLinkToEmail(email,actionCodeSettings)
     }
 
-    suspend fun signUpWithPhoneNumber(credential: PhoneAuthCredential): String {
-        auth.signInWithCredential(credential).await()
+    suspend fun signUpWithPhoneNumber(phoneNumber: String,password: String): String {
+        val concatenatedPhoneNumber = "$phoneNumber@dondja.com".trim()
+        auth.createUserWithEmailAndPassword(concatenatedPhoneNumber, password).await()
         return auth.currentUser!!.uid
     }
 

@@ -9,6 +9,6 @@
     <string name="txt_connectez_vous_en_saississant_votre_adresse_mail_ou_votre_numero_de_telephone_et_votre_mot_de_passe">Connectez vous en saississant votre adresse mail ou votre numero de telephone et votre mot de passe</string>
     <string name="choisissez_une_photo_dans_votre_galerie_et_appuyez_sur_s_inscrire_pour_terminer_l_inscription">Choisissez une photo dans votre galerie et appuyez sur “s’inscrire“ pour terminer l’inscription</string>
     <string name="txt_politique_de_confidentialit">En vous inscrivant, vous acceptez nos <b><font color="#EE2255">Conditions d’utilisation</font></b> et <b><font color="#EE2255">la Politique de confidentialité</font></b></string>
-    <string name="bienvenue_sur_dondja_b_nitha">Bienvenue sur <font color="#EE2255">Dondja</font> Bénitha</string>
+    <string name="bienvenue_sur_dondja_user">Bienvenue sur <font color="#EE2255">Dondja</font> %s</string>
     <string name="nous_vous_prions_de_garder_secret">Nous vous prions de garder secret vos coordonnées de peur que quelqu’un d’autre les aperçoit et tente de se connecter sur votre compte</string>
 </resources>

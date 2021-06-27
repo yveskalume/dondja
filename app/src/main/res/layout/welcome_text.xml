@@ -7,6 +7,11 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textFontWeight="500"
+        android:textSize="17sp"
+        android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </layout>

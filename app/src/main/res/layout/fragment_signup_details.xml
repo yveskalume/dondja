@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@string/bienvenue_sur_dondja_b_nitha"
+                tools:text="@string/bienvenue_sur_dondja_user"
                 android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold"

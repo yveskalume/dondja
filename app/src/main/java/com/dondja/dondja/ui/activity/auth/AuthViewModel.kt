@@ -50,10 +50,10 @@ class AuthViewModel @Inject constructor(
         }
     }
 
-    fun signUpWithPhoneNumber(credential: PhoneAuthCredential) = viewModelScope.launch {
+    fun signUpWithPhoneNumber() = viewModelScope.launch {
         try {
             signUpWithPhoneFlowState.postValue(Result.Loading)
-            val userUid = interactor.signUpWithPhoneNumber(credential)
+            val userUid = interactor.signUpWithPhoneNumber(user.phoneNumber,user.password)
             val user = user.copy(uid = userUid)
             saveUserInfo(user)
             signUpWithPhoneFlowState.postValue(Result.Success(Unit))

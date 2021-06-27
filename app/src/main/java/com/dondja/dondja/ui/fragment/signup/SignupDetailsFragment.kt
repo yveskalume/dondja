@@ -23,6 +23,7 @@ class SignupDetailsFragment : Fragment(R.layout.fragment_signup_details) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.circleImageView12.setImageUrl(currentUser?.photoUrl.toString())
+        binding.materialTextView27.text = resources.getString(R.string.bienvenue_sur_dondja_user,viewModel.user.firstName)
         binding.btnNext.setOnClickListener {
             startActivity(Intent(requireContext(),MainActivity::class.java))
         }

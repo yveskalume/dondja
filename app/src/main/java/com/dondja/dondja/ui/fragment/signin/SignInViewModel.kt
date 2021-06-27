@@ -7,11 +7,13 @@ import androidx.lifecycle.viewModelScope
 import com.dondja.dondja.data.util.Result
 import com.dondja.dondja.util.Log
 import com.google.firebase.auth.FirebaseUser
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+@HiltViewModel
 class SignInViewModel @Inject constructor(val presenter: SignInPresenter) : ViewModel() {
 
     private val _loginState = MutableLiveData<Result<FirebaseUser>>()
@@ -29,8 +31,15 @@ class SignInViewModel @Inject constructor(val presenter: SignInPresenter) : View
         }
     }
 
-    fun signInWithPhone(phone: String) {
-
+    fun signInWithPhoneNumber(phone: String,password: String) = viewModelScope.launch {
+        try {
+            _loginState.postValue(Result.Loading)
+            val user = presenter.signInWithPhoneNumber(phone,password)
+            _loginState.postValue(Result.Success(user!!))
+        } catch (e : Exception) {
+            _loginState.postValue(Result.Error(e))
+            Log(e.toString())
+        }
     }
 
 }

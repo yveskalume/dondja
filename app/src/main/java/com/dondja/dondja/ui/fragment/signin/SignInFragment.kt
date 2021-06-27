@@ -10,7 +10,9 @@ import com.afollestad.vvalidator.form
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentSignInBinding
 import com.dondja.dondja.ui.activity.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     private val binding by viewBinding<FragmentSignInBinding>()
     private val viewModel by viewModels<SignInViewModel>()
@@ -50,7 +52,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         if (isEmail) {
             viewModel.signInWithEmail(emailOrPhone,password)
         } else {
-            viewModel.
+            viewModel.signInWithPhoneNumber(emailOrPhone,password)
         }
     }
 

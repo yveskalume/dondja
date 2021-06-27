@@ -43,8 +43,7 @@ class SignupOtpFragment : Fragment(R.layout.fragment_signup_otp) {
                 showToast("Veuillez saisir le code")
                 return@setOnClickListener
             }
-            val credential = PhoneAuthProvider.getCredential(storedVerificationId,code)
-            viewModel.signUpWithPhoneNumber(credential)
+            viewModel.signUpWithPhoneNumber()
             observeSignupState()
         }
 
@@ -80,7 +79,7 @@ class SignupOtpFragment : Fragment(R.layout.fragment_signup_otp) {
 
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         override fun onVerificationCompleted(p0: PhoneAuthCredential) {
-            viewModel.signUpWithPhoneNumber(p0)
+            viewModel.signUpWithPhoneNumber()
             observeSignupState()
         }
 

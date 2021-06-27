@@ -8,8 +8,8 @@ import javax.inject.Inject
 
 class SignInPresenter @Inject constructor(private val accountInteractor: AccountInteractor) {
 
-    suspend fun signInWithPhoneNumber() = withContext(Dispatchers.IO) {
-//        accountInteractor.signUpWithPhoneNumber()
+    suspend fun signInWithPhoneNumber(phoneNumber: String, password: String) = withContext(Dispatchers.IO) {
+        accountInteractor.signInWithPhoneNumber(phoneNumber, password)
     }
 
     suspend fun signInWithEmail(email: String,password: String) = withContext(Dispatchers.IO) {
