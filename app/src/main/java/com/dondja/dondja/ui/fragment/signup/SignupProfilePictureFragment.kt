@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.dondja.dondja.R
 import com.dondja.dondja.data.util.Result
+import com.dondja.dondja.data.util.Result.*
 import com.dondja.dondja.databinding.FragmentSignupProfilePictureBinding
 import com.dondja.dondja.ui.activity.auth.AuthViewModel
 import com.dondja.dondja.util.*
@@ -24,6 +25,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SignupProfilePictureFragment : Fragment(R.layout.fragment_signup_profile_picture) {
     private val binding by viewBinding<FragmentSignupProfilePictureBinding>()
     private val viewModel by activityViewModels<AuthViewModel>()
+    private var alreadyToasted = false
 
 
     private var profileUri: Uri? = null
@@ -37,22 +39,22 @@ class SignupProfilePictureFragment : Fragment(R.layout.fragment_signup_profile_p
             pickImage()
         }
 
-        binding.btnNext.setOnClickListener {
+        binding.btnNext.setOnClickListener { btnNext ->
+            alreadyToasted = false
             if (profileUri != null) {
                 viewModel.uploadUserProfile(profileUri!!)
                 viewModel.imageUploadingState.observe(viewLifecycleOwner) { result ->
+                    btnNext.isEnabled = result !is Loading
                     when(result) {
-                        is Result.Loading -> {
-                            it.setOnClickListener(null)
-                            it.setBackgroundColor(Color.GRAY)
-                            it.isEnabled = false
-                        }
-                        is Result.Success -> {
+                        is Success -> {
                             next()
                         }
 
-                        is Result.Error -> {
-                            showToast("Erreur")
+                        is Error -> {
+                            if(!alreadyToasted) {
+                                showToast("Erreur")
+                                alreadyToasted = true
+                            }
                             Log(result.exception.toString())
                         }
                     }
