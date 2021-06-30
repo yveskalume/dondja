@@ -50,4 +50,8 @@
         android:id="@+id/themeFeedFragment"
         android:name="com.dondja.dondja.ui.fragment.themefeed.ThemeFeedFragment"
         android:label="ThemeFeedFragment" />
+    <fragment
+        android:id="@+id/createPostFragment"
+        android:name="com.dondja.dondja.ui.fragment.createpost.CreatePostFragment"
+        android:label="CreatePostFragment" />
 </navigation>
