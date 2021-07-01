@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.yalantis.ucrop.UCrop
 import com.yalantis.ucrop.UCropActivity
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
@@ -76,7 +77,8 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
                     title = binding.edTitle.text.toString(),
                     description = binding.edDescription.text.toString(),
                     userDisplayName = currentUser!!.displayName!!,
-                    userProfilePicture = currentUser!!.photoUrl.toString()
+                    userProfilePicture = currentUser!!.photoUrl.toString(),
+                    createdAt = Date(System.currentTimeMillis())
 
                 )
                 viewModel.publishPost()
