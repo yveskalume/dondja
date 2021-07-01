@@ -75,7 +75,8 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
                     userUid = currentUser!!.uid,
                     title = binding.edTitle.text.toString(),
                     description = binding.edDescription.text.toString(),
-                    userDisplayName = currentUser!!.displayName!!
+                    userDisplayName = currentUser!!.displayName!!,
+                    userProfilePicture = currentUser!!.photoUrl.toString()
 
                 )
                 viewModel.publishPost()

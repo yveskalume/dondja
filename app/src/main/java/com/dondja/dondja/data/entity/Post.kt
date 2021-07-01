@@ -11,6 +11,7 @@ data class Post (
     val audioUrl: String = "",
     val userUid: String = "",
     val userDisplayName: String = "",
+    val userProfilePicture: String = "",
     val commentsNumber: Long = 0,
     val likes: Long = 0,
     val shares: Long = 0,
