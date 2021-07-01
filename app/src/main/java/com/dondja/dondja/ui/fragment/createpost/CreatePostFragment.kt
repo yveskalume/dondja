@@ -18,6 +18,7 @@ import com.dondja.dondja.imageCreatePost
 import com.dondja.dondja.util.Log
 import com.dondja.dondja.util.getImageFile
 import com.dondja.dondja.util.showToast
+import com.google.firebase.auth.FirebaseAuth
 import com.yalantis.ucrop.UCrop
 import com.yalantis.ucrop.UCropActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,6 +28,7 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
     private val binding by viewBinding<FragmentCreatePostBinding>()
 
     private val viewModel by viewModels<CreatePostViewModel>()
+    private val currentUser by lazy { FirebaseAuth.getInstance().currentUser }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -69,6 +71,13 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
 //            }
 
             submitWith(binding.btnPublish) {
+                viewModel.post = viewModel.post.copy(
+                    userUid = currentUser!!.uid,
+                    title = binding.edTitle.text.toString(),
+                    description = binding.edDescription.text.toString(),
+                    userDisplayName = currentUser!!.displayName!!
+
+                )
                 viewModel.publishPost()
             }
 

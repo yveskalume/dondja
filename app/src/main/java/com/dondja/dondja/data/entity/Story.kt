@@ -6,7 +6,7 @@ data class Story(
     val uid: String = "",
     val content: String = "",
     val contentType: String ="",
-    val views: Int = 0,
+    val views: Long = 0,
     val viewersUid: List<String> = emptyList(),
     val followersUid: List<String> = emptyList(),
     val createdAt: Date? = null

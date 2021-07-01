@@ -18,7 +18,7 @@ import kotlin.collections.ArrayList
 class CreatePostViewModel @Inject constructor(private val presenter: CreatePostPresenter) : ViewModel() {
     private val urlsArray = ArrayList<String>()
     private val uris = ArrayList<Uri>()
-    val post = Post()
+    var post = Post()
     val imageUrls = MutableLiveData<ArrayList<String>>()
 
     private val _publishingState = MutableLiveData<Result<Unit>>()

@@ -110,7 +110,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:textColor="@color/black"
-                        android:text="@{viewmodel.post.title}"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,10 +117,12 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
                     android:text="@string/text_max"
                     app:layout_constraintBottom_toBottomOf="@id/textInputLayout2"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
-                    app:layout_constraintTop_toTopOf="@+id/textInputLayout2" />
+                    app:layout_constraintTop_toTopOf="@+id/textInputLayout2"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout2"
@@ -140,8 +141,9 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edDescription"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:text="@{viewmodel.post.description}"
+                        android:layout_height="wrap_content"
+                        android:minHeight="100dp"
+                        android:gravity="top"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -165,7 +167,6 @@
                         android:id="@+id/edTheme"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:text="@{viewmodel.post.title}"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
