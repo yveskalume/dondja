@@ -8,6 +8,8 @@ plugins {
     id 'com.google.gms.google-services'
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.firebase.crashlytics'
+
 }
 
 def apikeyPropertiesFile = rootProject.file("apikey.properties")
@@ -88,6 +90,8 @@ dependencies {
     implementation(Deps.Firebase.auth)
     implementation(Deps.Firebase.storage)
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
 
     implementation(Deps.AndroidX.viewPager2)
