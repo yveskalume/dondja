@@ -15,6 +15,8 @@ import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderView
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
+import org.ocpsoft.prettytime.PrettyTime
+import java.util.*
 
 @BindingAdapter(value = ["isVisible"])
 fun View.isVisible(value: Boolean?) {
@@ -78,4 +80,10 @@ fun ImageCarousel.setImages(items: List<String>) {
         showIndicator = false
     }
     setData(list)
+}
+
+@BindingAdapter(value = ["bindDate"])
+fun TextView.bindDate(date: Date) {
+    val p = PrettyTime()
+    text = p.format(date)
 }
