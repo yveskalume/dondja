@@ -1,5 +1,6 @@
 package com.dondja.dondja.data.util
 
+import com.dondja.dondja.util.Log
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.Query
@@ -15,7 +16,7 @@ inline fun <reified T>DocumentReference.collectAsFlow() : Flow<Result<T>> {
         addSnapshotListener { value, error ->
             if (error != null || value == null) {
                 if (!isClosedForSend) {
-                    offer(com.dondja.dondja.data.util.Result.Error(Exception(error)))
+                    offer(Result.Error(Exception(error)))
                 }
                 close(error)
                 return@addSnapshotListener
@@ -23,7 +24,7 @@ inline fun <reified T>DocumentReference.collectAsFlow() : Flow<Result<T>> {
 
             if (!isClosedForSend) {
                 value.toObject<T>()?.let {
-                    offer(com.dondja.dondja.data.util.Result.Success(it))
+                    offer(Result.Success(it))
                 }
             }
         }
@@ -36,15 +37,17 @@ inline fun <reified T>Query.collectAsFlow(crossinline action: ((List<T>) -> List
     return callbackFlow {
         addSnapshotListener { value, error ->
             if (error != null || value == null) {
-                if (isClosedForSend) {
-                    offer(com.dondja.dondja.data.util.Result.Error(Exception(error)))
+                if (!isClosedForSend) {
+                    offer(Result.Error(Exception(error)))
                 }
                 close(error)
                 return@addSnapshotListener
             }
 
             if (!isClosedForSend) {
-                offer(com.dondja.dondja.data.util.Result.Success(action(value.toObjects(T::class.java))))
+                offer(Result.Success(action(value.toObjects(T::class.java))).also {
+                    Log("data ${it.data}")
+                })
             }
         }
         awaitClose()

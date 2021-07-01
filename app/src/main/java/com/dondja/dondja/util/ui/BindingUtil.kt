@@ -9,6 +9,9 @@ import com.airbnb.epoxy.EpoxyRecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dondja.dondja.R
+import com.dondja.dondja.ui.adapter.sliderimage.SliderImageAdapter
+import com.smarteist.autoimageslider.SliderAnimations
+import com.smarteist.autoimageslider.SliderView
 
 @BindingAdapter(value = ["isVisible"])
 fun View.isVisible(value: Boolean?) {
@@ -52,4 +55,10 @@ fun ImageView.setRandomImage(boolean: String) {
         R.drawable.img5,
         R.drawable.img6)
     setImageResource(images.random())
+}
+
+@BindingAdapter(value = ["setImages"])
+fun SliderView.setImages(items: List<String>) {
+    setSliderAdapter(SliderImageAdapter(items))
+    setSliderTransformAnimation(SliderAnimations.ANTICLOCKSPINTRANSFORMATION)
 }

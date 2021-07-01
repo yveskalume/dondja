@@ -8,9 +8,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.carousel
 import com.dondja.dondja.*
+import com.dondja.dondja.data.util.Result
+import com.dondja.dondja.data.util.Result.*
 import com.dondja.dondja.databinding.FragmentFeedAllBinding
 import com.dondja.dondja.ui.fragment.feed.FeedFragmentDirections
-import com.dondja.dondja.util.ViewState.*
+import com.dondja.dondja.util.Log
 import com.dondja.dondja.util.showToast
 import com.dondja.dondja.util.ui.ThemeClickListener
 import com.dondja.dondja.util.ui.withModelsFrom
@@ -33,13 +35,14 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all), ThemeClickListener
 
     private fun observeDataFromViewModel() {
         viewModel.data.observe(viewLifecycleOwner) {
+            Log(it.toString())
             when(it) {
                 is Loading -> {
 
                 }
                 is Success -> bindData(it.data)
-                is Failure -> {
-                    showToast(it.error.message.toString())
+                is Error -> {
+                    showToast(it.exception.message.toString())
                 }
             }
         }
@@ -50,19 +53,20 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all), ThemeClickListener
             headerStoryCarousel {
                 id("stories-header")
             }
-            carousel {
-                id("story")
-                withModelsFrom(data.stories) {
-                    StoryBindingModel_()
-                            .id(it.uid)
-                            .onStoryClick { _ ->
-                                findNavController().navigate(R.id.to_storyViewFragment)
-                            }
-                }
-            }
+//            carousel {
+//                id("story")
+//                withModelsFrom(data.stories) {
+//                    StoryBindingModel_()
+//                            .id(it.uid)
+//                            .onStoryClick { _ ->
+//                                findNavController().navigate(R.id.to_storyViewFragment)
+//                            }
+//                }
+//            }
             for (item in data.posts.withIndex()) {
                 post {
                     id(item.value.uid)
+                    post(item.value)
                     themeClickListener(this@FeedAllFragment)
                     onPostClick { _ ->
                         val direction = FeedFragmentDirections.toPostViewFragment()

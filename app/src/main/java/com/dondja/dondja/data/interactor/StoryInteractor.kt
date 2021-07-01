@@ -8,9 +8,11 @@ import com.dondja.dondja.data.util.Result
 import com.dondja.dondja.data.util.collectAsFlow
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+@ExperimentalCoroutinesApi
 class StoryInteractor @Inject constructor(
     private val firestore: FirebaseFirestore,
     private val auth: FirebaseAuth
@@ -37,9 +39,7 @@ class StoryInteractor @Inject constructor(
 
     override fun getAllFromFlowing(): Flow<Result<List<Story>>> {
         val query = firestore.collection(ref.posts)
-            .whereArrayContains(Post::followersUid.name, currentUser!!.uid)
-        return query.collectAsFlow { post -> post.filter { it.isCreatedToday() &&
-                !it.viewersUid.contains(currentUser!!.uid)
-        }.sortedBy { it.createdAt } }
+//            .whereArrayContains(Post::followersUid.name, currentUser!!.uid)
+        return query.collectAsFlow()
     }
 }

@@ -14,6 +14,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -44,10 +45,10 @@ class PostInteractor @Inject constructor(
     }
 
     @ExperimentalCoroutinesApi
-    override fun getAllFromFlowing(): Flow<Result<List<Post>>> {
+    override fun getAllFromFlowing() : Flow<Result<List<Post>>> {
         val query = firestore.collection(firestoreRef.posts)
-            .whereArrayContains(Story::followersUid.name, currentUser!!.uid)
-        return query.collectAsFlow { post -> post.sortedBy { it.createdAt } }
+//            .whereArrayContains(Story::followersUid.name, currentUser!!.uid)
+        return query.collectAsFlow()
     }
 
     suspend fun savePost(newPost: Post) {

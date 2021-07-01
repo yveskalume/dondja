@@ -134,25 +134,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/post_description"
+            android:text="@{post.description}"
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tags" />
 
-        <com.makeramen.roundedimageview.RoundedImageView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/image"
             android:layout_width="0dp"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="8dp"
             android:layout_height="331dp"
-            android:src="@drawable/img2"
-            android:scaleType="centerCrop"
-            app:riv_corner_radius="8dp"
-            android:onClick="@{onPostClick}"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text" />
+            app:layout_constraintTop_toBottomOf="@id/text">
+            <com.smarteist.autoimageslider.SliderView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:setImages="@{post.imagesUrls}"
+                app:sliderAutoCycleEnabled="true"
+                android:scaleType="centerCrop"
+                android:onClick="@{onPostClick}"
+                android:layout_marginTop="8dp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/views"
@@ -194,7 +202,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="3"
-                android:text="500 K"
+                android:text="0"
                 android:textColor="#747474"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/likeBtn"
@@ -220,7 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="100"
+                android:text="0"
                 android:textColor="#747474"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/commentBtn"
@@ -245,7 +253,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="100"
+                android:text="0"
                 android:textColor="#747474"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/shareBtn"
