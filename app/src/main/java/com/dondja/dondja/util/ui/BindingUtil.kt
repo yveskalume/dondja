@@ -13,6 +13,8 @@ import com.dondja.dondja.R
 import com.dondja.dondja.ui.adapter.sliderimage.SliderImageAdapter
 import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderView
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
 @BindingAdapter(value = ["isVisible"])
 fun View.isVisible(value: Boolean?) {
@@ -67,4 +69,13 @@ fun TextView.setTextFromLong(content: Long) {
 fun SliderView.setImages(items: List<String>) {
     setSliderAdapter(SliderImageAdapter(items))
     setSliderTransformAnimation(SliderAnimations.ANTICLOCKSPINTRANSFORMATION)
+}
+
+@BindingAdapter(value = ["setImages"])
+fun ImageCarousel.setImages(items: List<String>) {
+    val list = items.map { CarouselItem(it) }
+    if (items.size < 2) {
+        showIndicator = false
+    }
+    setData(list)
 }

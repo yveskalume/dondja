@@ -32,9 +32,9 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
     private fun setUpPager() {
         val fragments = listOf(
             "Tout" to FeedAllFragment(),
-//            "Groupes" to FeedGroupFragment(),
-//            "Following" to FeedFollowingFragment(),
-//            "Hashtag" to FeedHashtagFragment()
+            "Groupes" to FeedGroupFragment(),
+            "Following" to FeedFollowingFragment(),
+            "Hashtag" to FeedHashtagFragment()
         )
 
        val feedPagerAdapter = FeedPagerAdapter(requireActivity(),fragments).also {

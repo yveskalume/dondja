@@ -16,7 +16,9 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.tasks.await
+import java.util.*
 import javax.inject.Inject
+import kotlin.collections.ArrayList
 
 class PostInteractor @Inject constructor(
     private val firestore: FirebaseFirestore,
@@ -61,7 +63,7 @@ class PostInteractor @Inject constructor(
     suspend fun uploadImages(uris: List<Uri>): ArrayList<String> {
         val urls = ArrayList<String>()
         for (uri in uris) {
-            val query = firebaseStorage.getReference(storageRef.posts)
+            val query = firebaseStorage.getReference(storageRef.posts).child("${currentUser!!.uid}_${System.currentTimeMillis().toString()}")
             query.putFile(uri).await()
             val imgUrl = query.downloadUrl.await().toString()
             urls.add(imgUrl)
