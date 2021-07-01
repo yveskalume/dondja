@@ -3,6 +3,7 @@ package com.dondja.dondja.util.ui
 import android.graphics.Bitmap
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.airbnb.epoxy.EpoxyRecyclerView
@@ -55,6 +56,11 @@ fun ImageView.setRandomImage(boolean: String) {
         R.drawable.img5,
         R.drawable.img6)
     setImageResource(images.random())
+}
+
+@BindingAdapter(value = ["textLong"])
+fun TextView.setTextFromLong(content: Long) {
+    text = content.toString()
 }
 
 @BindingAdapter(value = ["setImages"])
