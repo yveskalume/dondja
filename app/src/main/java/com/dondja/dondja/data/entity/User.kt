@@ -15,7 +15,7 @@ data class User(
     val followersNumber: Int = 0,
     val followingNumber: Int = 0,
     val followersUid: List<String> = listOf(),
-    val followingThemesUid: List<String> = listOf(),
+    val followingThemes: List<String> = listOf(),
     val isEmailValidate: Boolean = false,
     val isPhoneValidate: Boolean = false,
     val isValid: Boolean = true,

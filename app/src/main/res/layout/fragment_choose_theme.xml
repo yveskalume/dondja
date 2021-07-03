@@ -31,6 +31,7 @@
                 android:text="Choisissez les thèmes de publications que vous voudriez recevoir comme suggestion" />
 
             <com.google.android.material.chip.ChipGroup
+                android:id="@+id/themesGroupe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:chipSpacingVertical="-8dp"
@@ -38,97 +39,7 @@
                 app:singleSelection="false"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginTop="44dp">
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:checkable="true"
-                    style="@style/ThemeChipStyle"
-                    app:chipStrokeColor="@color/red"
-                    app:chipStrokeWidth="1dp"
-                    android:text="Musique" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:checkable="true"
-                    style="@style/ThemeChipStyle"
-                    app:chipStrokeColor="@color/red"
-                    app:chipStrokeWidth="1dp"
-                    android:text="Nature" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:checkable="true"
-                    style="@style/ThemeChipStyle"
-                    app:chipStrokeColor="@color/red"
-                    app:chipStrokeWidth="1dp"
-                    android:text="technologie" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:checkable="true"
-                    style="@style/ThemeChipStyle"
-                    app:chipStrokeColor="@color/red"
-                    app:chipStrokeWidth="1dp"
-                    android:text="Cuisine" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:checkable="true"
-                    style="@style/ThemeChipStyle"
-                    app:chipStrokeColor="@color/red"
-                    app:chipStrokeWidth="1dp"
-                    android:text="Art" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:checkable="true"
-                    style="@style/ThemeChipStyle"
-                    app:chipStrokeColor="@color/red"
-                    app:chipStrokeWidth="1dp"
-                    android:text="Cultue" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:checkable="true"
-                    style="@style/ThemeChipStyle"
-                    app:chipStrokeColor="@color/red"
-                    app:chipStrokeWidth="1dp"
-                    android:text="Voyage" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:checkable="true"
-                    style="@style/ThemeChipStyle"
-                    app:chipStrokeColor="@color/red"
-                    app:chipStrokeWidth="1dp"
-                    android:text="Photographie" />
-
-            </com.google.android.material.chip.ChipGroup>
+                android:layout_marginTop="44dp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnNext"

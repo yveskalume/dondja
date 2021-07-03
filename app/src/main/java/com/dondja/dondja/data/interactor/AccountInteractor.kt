@@ -19,6 +19,9 @@ class AccountInteractor @Inject constructor (
     )
 {
     private val ref = FirestoreReferences
+    private val currentUser by lazy {
+        auth.currentUser
+    }
 
     suspend fun signUpWithEmailAndPassword(email: String, password: String): String {
         auth.createUserWithEmailAndPassword(email,password).await()
@@ -90,5 +93,10 @@ class AccountInteractor @Inject constructor (
 
     suspend fun updatePassword(password: String) {
         auth.currentUser!!.updatePassword(password).await()
+    }
+
+    suspend fun setFollowingThemes(themes: List<String>) {
+        firestore.document("${ref.users}/${currentUser!!.uid}")
+            .update(User::followingThemes.name,themes).await()
     }
 }

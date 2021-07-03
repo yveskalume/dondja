@@ -35,4 +35,9 @@ class ThemeInteractor @Inject constructor(private val firestore: FirebaseFiresto
     override fun getAllFromFlowing(): Flow<Result<List<Theme>>> {
         TODO("Not yet implemented")
     }
+
+//    suspend fun addFollowingUser(themeUid: String,userUid: String) {
+//        firestore.document("${ref.themes}/$themeUid")
+//            .update(Theme::followersUid.name,userUid)
+//    }
 }

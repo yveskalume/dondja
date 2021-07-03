@@ -29,6 +29,8 @@
     <style name="ThemeChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="chipBackgroundColor">@color/chip_state_background_color</item>
         <item name="android:textColor">@color/chip_state_text_color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/red</item>
     </style>
 
     <style name="NavigationTheme" parent="">

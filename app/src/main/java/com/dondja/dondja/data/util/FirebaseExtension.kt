@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.callbackFlow
 @ExperimentalCoroutinesApi
 inline fun <reified T>DocumentReference.collectAsFlow() : Flow<Result<T>> {
     return callbackFlow {
+        offer(Result.Loading)
         addSnapshotListener { value, error ->
             if (error != null || value == null) {
                 if (!isClosedForSend) {
@@ -35,6 +36,7 @@ inline fun <reified T>DocumentReference.collectAsFlow() : Flow<Result<T>> {
 @ExperimentalCoroutinesApi
 inline fun <reified T>Query.collectAsFlow(crossinline action: ((List<T>) -> List<T>) = { data -> data} ) : Flow<Result<List<T>>> {
     return callbackFlow {
+        offer(Result.Loading)
         addSnapshotListener { value, error ->
             if (error != null || value == null) {
                 if (!isClosedForSend) {
