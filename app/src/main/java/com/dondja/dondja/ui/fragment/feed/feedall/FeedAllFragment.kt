@@ -7,9 +7,9 @@ import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.carousel
+import com.airbnb.mvrx.*
 import com.dondja.dondja.*
-import com.dondja.dondja.data.util.Result
-import com.dondja.dondja.data.util.Result.*
+import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentFeedAllBinding
 import com.dondja.dondja.ui.fragment.feed.FeedFragmentDirections
 import com.dondja.dondja.util.Log
@@ -19,34 +19,13 @@ import com.dondja.dondja.util.ui.withModelsFrom
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FeedAllFragment : Fragment(R.layout.fragment_feed_all), ThemeClickListener {
+class FeedAllFragment : Fragment(R.layout.fragment_feed_all),MavericksView, ThemeClickListener {
     private val binding by viewBinding<FragmentFeedAllBinding>()
-    private val viewModel by viewModels<FeedAllViewModel>()
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        observeDataFromViewModel()
-    }
+    private val viewModel: FeedAllViewModel by fragmentViewModel()
 
     override fun onThemeClick(themeName: String) {
         val direction = FeedFragmentDirections.toThemeFeedFragment()
         findNavController().navigate(direction)
-    }
-
-    private fun observeDataFromViewModel() {
-        viewModel.data.observe(viewLifecycleOwner) {
-            Log(it.toString())
-            when(it) {
-                is Loading -> {
-
-                }
-                is Success -> bindData(it.data)
-                is Error -> {
-                    showToast(it.exception.message.toString())
-                    android.util.Log.d(this.toString(), "observeDataFromViewModel: ${it.exception}")
-                }
-            }
-        }
     }
 
     private fun bindData(data: FeedAllData) {
@@ -89,6 +68,22 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all), ThemeClickListener
                     }
                 }
 
+            }
+        }
+    }
+
+    override fun invalidate() = withState(viewModel) {
+        when(it.data) {
+            is Loading -> {
+
+            }
+
+            is Success -> {
+                bindData(it.data.invoke())
+            }
+
+            is Fail -> {
+                showToast(it.data.error.message.toString())
             }
         }
     }
