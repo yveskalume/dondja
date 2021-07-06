@@ -43,6 +43,7 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all), ThemeClickListener
                 is Success -> bindData(it.data)
                 is Error -> {
                     showToast(it.exception.message.toString())
+                    android.util.Log.d(this.toString(), "observeDataFromViewModel: ${it.exception}")
                 }
             }
         }

@@ -6,9 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dondja.dondja.data.entity.Post
+import com.dondja.dondja.data.entity.Theme
 import com.dondja.dondja.data.util.Result
 import com.dondja.dondja.util.Log
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
@@ -25,6 +27,24 @@ class CreatePostViewModel @Inject constructor(private val presenter: CreatePostP
     val publishingState : LiveData<Result<Unit>>
         get() = _publishingState
 
+    private val _themes = MutableLiveData<Result<List<Theme>>>()
+    val themes : LiveData<Result<List<Theme>>>
+        get() = _themes
+
+    init {
+        getThemes()
+    }
+
+    private fun getThemes() = viewModelScope.launch {
+        _themes.postValue(Result.Loading)
+        try {
+            presenter.getAllThemes().collect {
+                _themes.postValue(it)
+            }
+        } catch (e: Exception) {
+            _themes.postValue(Result.Error(e))
+        }
+    }
 
 
     fun bindImageUri(uri: Uri?) {

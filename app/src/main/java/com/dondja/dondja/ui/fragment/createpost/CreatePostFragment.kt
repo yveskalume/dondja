@@ -2,28 +2,36 @@ package com.dondja.dondja.ui.fragment.createpost
 
 import android.app.Activity
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spanned
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
+import android.widget.ArrayAdapter
+import android.widget.MultiAutoCompleteTextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.afollestad.vvalidator.form
 import com.dondja.dondja.R
-import com.dondja.dondja.data.util.Result
+import com.dondja.dondja.data.entity.Theme
 import com.dondja.dondja.data.util.Result.*
 import com.dondja.dondja.databinding.FragmentCreatePostBinding
 import com.dondja.dondja.imageCreatePost
 import com.dondja.dondja.util.Log
 import com.dondja.dondja.util.getImageFile
 import com.dondja.dondja.util.showToast
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipDrawable
 import com.google.firebase.auth.FirebaseAuth
 import com.yalantis.ucrop.UCrop
 import com.yalantis.ucrop.UCropActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
-
 @AndroidEntryPoint
 class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
     private val binding by viewBinding<FragmentCreatePostBinding>()
@@ -40,6 +48,7 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
         })
 
         setUpForm()
+        setUpThemesInput()
         observePublishingState()
     }
 
@@ -84,7 +93,56 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
                 viewModel.publishPost()
             }
 
+            setUpTextListnerForThemes()
+
         }
+    }
+
+    private fun setUpTextListnerForThemes() {
+        binding.edTheme.addTextChangedListener {
+
+        }
+    }
+
+    private fun setUpThemesInput() {
+        viewModel.themes.observe(viewLifecycleOwner) {
+            when(it) {
+                is Loading -> {
+
+                }
+                is Success -> bindThemesToInput(it.data)
+                is Error -> Toast.makeText(requireContext(), "Erreur", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun bindThemesToInput(data: List<Theme>) {
+        val themeAdapter = ArrayAdapter(requireContext(),android.R.layout.simple_dropdown_item_1line,data)
+        binding.edTheme.run {
+            setAdapter(themeAdapter)
+            setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
+            threshold = 1
+            setOnItemClickListener { parent, view, position, id ->
+                val theme = themeAdapter.getItem(position)
+                createThemeChipInEditText(theme)
+            }
+        }
+    }
+
+    private fun createThemeChipInEditText(theme: Theme?) {
+        if (theme == null) return
+        val cursorPosition = binding.edTheme.selectionStart
+        val spanLength = theme.title.length + 2
+        val editableText = binding.edTheme.text
+
+        val chipDrawable = Chip(this.context).apply {
+            text = theme.title
+            chipBackgroundColor = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.red))
+            setTextColor(resources.getColor(R.color.white))
+        }
+
+//        val span = CenteredImageSpan()
+        editableText.setSpan(chipDrawable, cursorPosition - spanLength, cursorPosition, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
     }
 
     private fun setUpListener() {

@@ -151,24 +151,28 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout3"
-                    style="@style/Widget.Design.TextInputLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
+                    style="@style/Widget.Design.TextInputLayout"
                     android:layout_marginEnd="16dp"
                     android:hint="Thème"
+                    android:focusable="true"
                     app:hintTextColor="@color/red"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textInputLayout2">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <MultiAutoCompleteTextView
                         android:id="@+id/edTheme"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:paddingStart="8dp"
+                        android:focusable="true"
+                        android:inputType="textAutoComplete"
+                        android:paddingEnd="8dp"
+                        android:padding="0dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
