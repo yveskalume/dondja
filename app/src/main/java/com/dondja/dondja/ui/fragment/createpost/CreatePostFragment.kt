@@ -6,6 +6,8 @@ import android.content.res.ColorStateList
 import android.net.Uri
 import android.os.Bundle
 import android.text.Spanned
+import android.text.style.ImageSpan
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
@@ -90,7 +92,7 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
                     createdAt = Date(System.currentTimeMillis())
 
                 )
-                viewModel.publishPost()
+//                viewModel.publishPost()
             }
 
             setUpTextListnerForThemes()
@@ -99,8 +101,29 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
     }
 
     private fun setUpTextListnerForThemes() {
-        binding.edTheme.addTextChangedListener {
+        binding.edTheme.addTextChangedListener { editable ->
+            val trimmed = editable.toString().trim { it <= ' ' }
+            if (trimmed.length > 1 && trimmed.endsWith(",")) {
 
+                val chip = Chip(this.context).apply {
+                    text = trimmed.substring(0, trimmed.length - 1)
+                    chipBackgroundColor = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.red))
+                    setTextColor(resources.getColor(R.color.white))
+                }
+
+                binding.themeChipGroup.addView(chip)
+                editable?.clear()
+            }
+        }
+
+        binding.edTheme.setOnKeyListener { _, _, event ->
+            if (event != null && event.action == KeyEvent.ACTION_DOWN && event.keyCode == KeyEvent.KEYCODE_DEL) {
+                if (binding.edTheme.length() == 0 && binding.themeChipGroup.childCount > 0) {
+                    val chip = binding.themeChipGroup.getChildAt(binding.themeChipGroup.childCount - 1) as Chip
+                    binding.themeChipGroup.removeView(chip)
+                }
+            }
+            false
         }
     }
 
@@ -131,18 +154,21 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
 
     private fun createThemeChipInEditText(theme: Theme?) {
         if (theme == null) return
-        val cursorPosition = binding.edTheme.selectionStart
-        val spanLength = theme.title.length + 2
-        val editableText = binding.edTheme.text
-
-        val chipDrawable = Chip(this.context).apply {
-            text = theme.title
-            chipBackgroundColor = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.red))
-            setTextColor(resources.getColor(R.color.white))
-        }
-
-//        val span = CenteredImageSpan()
-        editableText.setSpan(chipDrawable, cursorPosition - spanLength, cursorPosition, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+//        val cursorPosition = binding.edTheme.selectionStart
+//        val spanLength = theme.title.length + 2
+//        val editableText = binding.edTheme.text
+//        val chip = Chip(this.context).apply {
+//            text = theme.title
+//            chipBackgroundColor = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.red))
+//            setTextColor(resources.getColor(R.color.black))
+//        }
+//
+//        val chipDrawable = chip.chipDrawable
+//        chipDrawable.setBounds(0, 0, chipDrawable.intrinsicWidth, chipDrawable.intrinsicHeight)
+//
+//        val span = ImageSpan(chip.chipDrawable)
+//        editableText.setSpan(chipDrawable, cursorPosition - spanLength, cursorPosition, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+//        binding.edTheme.setText(theme.title)
     }
 
     private fun setUpListener() {
