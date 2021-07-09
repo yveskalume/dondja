@@ -29,17 +29,17 @@ class StoryInteractor @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override fun updateOneByUid(uid: String): Flow<Result<Unit>> {
-        TODO("Not yet implemented")
-    }
-
-    override fun deleteOneByUid(uid: String): Flow<Result<Unit>> {
-        TODO("Not yet implemented")
-    }
-
     override fun getAllFromFlowing(): Flow<Result<List<Story>>> {
         val query = firestore.collection(ref.posts)
 //            .whereArrayContains(Post::followersUid.name, currentUser!!.uid)
         return query.collectAsFlow()
+    }
+
+    override suspend fun updateOne(data: Story) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun deleteOneByUid(uid: String) {
+        TODO("Not yet implemented")
     }
 }
