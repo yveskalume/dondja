@@ -31,19 +31,19 @@ class PostInteractor @Inject constructor(
     private val currentUser by lazy { auth.currentUser }
 
     override fun getAll(): Flow<Result<List<Post>>> {
-        TODO("Not yet implemented")
+        return firestore.collection(firestoreRef.posts).collectAsFlow()
     }
 
     override fun getOneById(uid: String): Flow<Result<Post>> {
-        TODO("Not yet implemented")
+        return firestore.document("${firestoreRef.posts}/$uid").collectAsFlow()
     }
 
-    override fun updateOneByUid(uid: String): Flow<Result<Unit>> {
-        TODO("Not yet implemented")
+    override suspend fun updateOne(data: Post) {
+        firestore.document("${firestoreRef.posts}/${data.uid}").set(data).await()
     }
 
-    override fun deleteOneByUid(uid: String): Flow<Result<Unit>> {
-        TODO("Not yet implemented")
+    override suspend fun deleteOneByUid(uid: String) {
+        firestore.document("${firestoreRef.posts}/$uid").delete().await()
     }
 
     @ExperimentalCoroutinesApi
