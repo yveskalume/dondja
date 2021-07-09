@@ -71,4 +71,15 @@ class PostInteractor @Inject constructor(
 
         return urls
     }
+
+    suspend fun likeOrDislike(userUid: String, post: Post) {
+        val likersUid = post.followersUid
+        if (post.followersUid.contains(userUid)) {
+            likersUid.add(userUid)
+        } else {
+            likersUid.remove(userUid)
+        }
+        firestore.document("${firestoreRef.posts}/${post.uid}")
+            .update(Post::followersUid.name,likersUid).await()
+    }
 }

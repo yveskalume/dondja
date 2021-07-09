@@ -1,6 +1,7 @@
 package com.dondja.dondja.data.entity
 
 import java.util.*
+import kotlin.collections.ArrayList
 
 data class Post (
     val uid: String = "",
@@ -16,7 +17,7 @@ data class Post (
     val likes: Long = 0,
     val shares: Long = 0,
     val themes: List<String> = emptyList(),
-    val followersUid: List<String> = listOf(),
+    val followersUid: ArrayList<String> = arrayListOf(),
     val likersUid: List<String> = listOf(),
     val commentatorsUid: List<String> = listOf(),
     val isVideo: Boolean = false,

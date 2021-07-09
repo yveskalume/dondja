@@ -26,16 +26,4 @@ class UserInteractor @Inject constructor(
         return query.collectAsFlow()
     }
 
-    override fun updateOneByUid(uid: String): Flow<Result<Unit>> {
-        TODO("Not yet implemented")
-    }
-
-    override fun deleteOneByUid(uid: String): Flow<Result<Unit>> {
-        TODO("Not yet implemented")
-    }
-
-    override fun getAllFromFlowing(): Flow<Result<List<User>>> {
-        TODO("Not yet implemented")
-    }
-
 }
