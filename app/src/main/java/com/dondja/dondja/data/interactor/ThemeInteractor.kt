@@ -21,19 +21,13 @@ class ThemeInteractor @Inject constructor(private val firestore: FirebaseFiresto
     }
 
     override fun getOneById(uid: String): Flow<Result<Theme>> {
-        TODO("Not yet implemented")
+        return firestore.document("${ref.themes}/$uid").collectAsFlow()
     }
 
-    override fun updateOneByUid(uid: String): Flow<Result<Unit>> {
-        TODO("Not yet implemented")
-    }
-
-    override fun deleteOneByUid(uid: String): Flow<Result<Unit>> {
-        TODO("Not yet implemented")
-    }
-
-    override fun getAllFromFlowing(): Flow<Result<List<Theme>>> {
-        TODO("Not yet implemented")
+    fun getAllFollowedWithUserUid(userUid: String): Flow<Result<List<Theme>>> {
+        val query = firestore.collection(ref.themes)
+            .whereArrayContains(Theme::followersUid.name, userUid)
+        return query.collectAsFlow()
     }
 
 //    suspend fun addFollowingUser(themeUid: String,userUid: String) {
