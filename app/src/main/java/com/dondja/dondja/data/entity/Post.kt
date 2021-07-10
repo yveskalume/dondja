@@ -1,8 +1,11 @@
 package com.dondja.dondja.data.entity
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import java.util.*
 import kotlin.collections.ArrayList
 
+@Parcelize
 data class Post (
     val uid: String = "",
     val title: String = "",
@@ -24,4 +27,4 @@ data class Post (
     val isShared: Boolean = false,
     val updatedAt: Date? = null,
     val createdAt: Date? = null,
-)
+) : Parcelable

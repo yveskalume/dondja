@@ -41,7 +41,11 @@
     <fragment
         android:id="@+id/postViewFragment"
         android:name="com.dondja.dondja.ui.fragment.postview.PostViewFragment"
-        android:label="PostViewFragment" />
+        android:label="PostViewFragment" >
+        <argument
+            android:name="post"
+            app:argType="com.dondja.dondja.data.entity.Post" />
+    </fragment>
     <dialog
         android:id="@+id/dialogStoryViewersFragment"
         android:name="com.dondja.dondja.ui.fragment.dialogstoryviewers.DialogStoryViewersFragment"

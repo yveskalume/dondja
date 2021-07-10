@@ -48,8 +48,12 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all),MavericksView, Them
                     id(item.value.uid)
                     post(item.value)
                     themeClickListener(this@FeedAllFragment)
-                    onPostClick { _ ->
-                        val direction = FeedFragmentDirections.toPostViewFragment()
+                    onTextClick { _ ->
+                        val direction = FeedFragmentDirections.toPostViewFragment(item.value)
+                        findNavController().navigate(direction)
+                    }
+                    onPostClick {
+                        val direction = FeedFragmentDirections.toPostViewFragment(item.value)
                         findNavController().navigate(direction)
                     }
                 }

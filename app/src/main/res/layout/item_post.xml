@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="kotlin.jvm.functions.Function1"/>
+        <import type="kotlin.Unit"/>
         <variable
             name="height"
             type="String" />
@@ -14,8 +16,12 @@
             name="onOptionClick"
             type="android.view.View.OnClickListener" />
         <variable
-            name="onPostClick"
+            name="onTextClick"
             type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onPostClick"
+            type="Function1&lt;Unit, Unit>"/>
         <variable
             name="themeClickListener"
             type="com.dondja.dondja.util.ui.ThemeClickListener" />
@@ -136,6 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@{post.description}"
+            android:onClick="@{onTextClick}"
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -160,7 +167,7 @@
                 app:showTopShadow="false"
                 app:showNavigationButtons="false"
                 app:infiniteCarousel="false"
-                android:onClick="@{onPostClick}"
+                app:onCarouselClick="@{onPostClick}"
                 android:layout_marginTop="8dp"
                 />
         </com.google.android.material.card.MaterialCardView>

@@ -14,6 +14,7 @@ import com.dondja.dondja.ui.adapter.sliderimage.SliderImageAdapter
 import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderView
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
+import org.imaginativeworld.whynotimagecarousel.listener.CarouselListener
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import org.ocpsoft.prettytime.PrettyTime
 import java.util.*
@@ -79,6 +80,14 @@ fun ImageCarousel.setImages(items: List<String>) {
     if (items.size < 2) {
         showIndicator = false
     }
+
+    setData(list)
+}
+
+@BindingAdapter(value = ["setImagesWithourDot"])
+fun ImageCarousel.setImagesWithourDot(items: List<String>) {
+    val list = items.map { CarouselItem(it) }
+    showIndicator = false
     setData(list)
 }
 
@@ -86,4 +95,14 @@ fun ImageCarousel.setImages(items: List<String>) {
 fun TextView.bindDate(date: Date) {
     val p = PrettyTime()
     text = p.format(date)
+}
+
+@BindingAdapter(value = ["onCarouselClick"])
+fun ImageCarousel.onCarouselClick(listener : (Unit) -> Unit) {
+    carouselListener = object  : CarouselListener {
+        override fun onClick(position: Int, carouselItem: CarouselItem) {
+            super.onClick(position, carouselItem)
+            listener.invoke(Unit)
+        }
+    }
 }
