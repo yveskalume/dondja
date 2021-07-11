@@ -29,6 +29,10 @@ class PostViewFragment : Fragment(R.layout.fragment_post_view), MavericksView {
         binding.materialToolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
+
+        binding.likeBtn.setOnClickListener {
+            viewModel.likeOrDislikePost(args.post)
+        }
     }
 
     private fun bindData() {

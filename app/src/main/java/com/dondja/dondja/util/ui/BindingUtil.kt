@@ -1,5 +1,6 @@
 package com.dondja.dondja.util.ui
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.view.View
 import android.widget.ImageView
@@ -22,6 +23,22 @@ import java.util.*
 @BindingAdapter(value = ["isVisible"])
 fun View.isVisible(value: Boolean?) {
     isVisible = value == true
+}
+
+@BindingAdapter(value = ["longText"])
+fun TextView.longText(value: Long) {
+    text = value.toString()
+}
+
+@SuppressLint("UseCompatLoadingForDrawables")
+@BindingAdapter("bindLikeBtn")
+fun ImageView.bindLikeButton(isLiked: Boolean) {
+    val image = when(isLiked) {
+        false -> resources.getDrawable(R.drawable.ic_like)
+        true ->  resources.getDrawable(R.drawable.ic_red_heart)
+    }
+
+    setImageDrawable(image)
 }
 
 @BindingAdapter("setWithPager")

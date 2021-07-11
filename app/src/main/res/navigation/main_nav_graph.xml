@@ -21,7 +21,11 @@
     <fragment
         android:id="@+id/discoverFragment"
         android:name="com.dondja.dondja.ui.fragment.discover.DiscoverFragment"
-        android:label="DiscoverFragment" />
+        android:label="DiscoverFragment" >
+        <action
+            android:id="@+id/to_postViewFragment"
+            app:destination="@id/postViewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.dondja.dondja.ui.fragment.notification.NotificationFragment"
@@ -58,4 +62,12 @@
         android:id="@+id/createPostFragment"
         android:name="com.dondja.dondja.ui.fragment.createpost.CreatePostFragment"
         android:label="CreatePostFragment" />
+    <fragment
+        android:id="@+id/popularFragment"
+        android:name="com.dondja.dondja.ui.fragment.discover.popular.PopularFragment"
+        android:label="PopularFragment" >
+        <action
+            android:id="@+id/to_postViewFragment"
+            app:destination="@id/postViewFragment" />
+    </fragment>
 </navigation>

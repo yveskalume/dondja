@@ -1,5 +1,6 @@
 package com.dondja.dondja.ui.fragment.feed.feedall
 
+import com.dondja.dondja.data.entity.Post
 import com.dondja.dondja.data.interactor.PostInteractor
 import com.dondja.dondja.data.interactor.StoryInteractor
 import com.dondja.dondja.data.util.data
@@ -24,5 +25,9 @@ class FeedAllPresenter @Inject constructor(
     @ExperimentalCoroutinesApi
     suspend fun getAllStoryFromFollowing() = withContext(Dispatchers.IO) {
         storyInteractor.getAllFromFlowing()
+    }
+
+    suspend fun likeOrDislikePost(post: Post) = withContext(Dispatchers.IO) {
+        postInteractor.likeOrDislike(post)
     }
 }

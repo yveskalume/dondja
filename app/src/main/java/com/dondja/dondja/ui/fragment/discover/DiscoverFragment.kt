@@ -14,8 +14,10 @@ import com.dondja.dondja.ui.fragment.discover.foryou.ForYouFragment
 import com.dondja.dondja.ui.fragment.discover.popular.PopularFragment
 import com.dondja.dondja.ui.fragment.discover.theme.ThemeFragment
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class DiscoverFragment : Fragment(R.layout.fragment_discover) {
     private val binding by viewBinding<FragmentDiscoverBinding>()
 
@@ -37,6 +39,7 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover) {
     private fun setUpPager() {
 
         viewPager.adapter = FragmentPagerAdapter(requireActivity(),fragments)
+        viewPager.currentItem = 0
 
         TabLayoutMediator(tabLayout, viewPager
         ) { tab, position ->

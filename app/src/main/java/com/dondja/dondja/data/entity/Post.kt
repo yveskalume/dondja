@@ -27,4 +27,9 @@ data class Post (
     val isShared: Boolean = false,
     val updatedAt: Date? = null,
     val createdAt: Date? = null,
-) : Parcelable
+) : Parcelable {
+
+    fun isLiked(userUid: String) : Boolean {
+        return likersUid.contains(userUid)
+    }
+}

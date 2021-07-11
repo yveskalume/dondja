@@ -72,14 +72,20 @@ class PostInteractor @Inject constructor(
         return urls
     }
 
-    suspend fun likeOrDislike(userUid: String, post: Post) {
+    suspend fun likeOrDislike(post: Post) {
         val likersUid = post.followersUid
-        if (post.followersUid.contains(userUid)) {
-            likersUid.add(userUid)
+        if (post.followersUid.contains(currentUser!!.uid)) {
+            likersUid.remove(currentUser!!.uid)
         } else {
-            likersUid.remove(userUid)
+            likersUid.add(currentUser!!.uid)
         }
         firestore.document("${firestoreRef.posts}/${post.uid}")
             .update(Post::followersUid.name,likersUid).await()
+    }
+
+    suspend fun getPopularPosts() : Flow<Result<List<Post>>> {
+        val query = firestore.collection(firestoreRef.posts)
+            .orderBy(Post::likes.name,Query.Direction.DESCENDING)
+        return query.collectAsFlow()
     }
 }

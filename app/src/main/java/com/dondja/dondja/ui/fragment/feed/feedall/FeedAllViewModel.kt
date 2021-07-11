@@ -4,6 +4,7 @@ import com.airbnb.mvrx.MavericksViewModel
 import com.airbnb.mvrx.MavericksViewModelFactory
 import com.dondja.dondja.app.di.mavericks.AssistedViewModelFactory
 import com.dondja.dondja.app.di.mavericks.hiltMavericksViewModelFactory
+import com.dondja.dondja.data.entity.Post
 import com.dondja.dondja.data.util.data
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
@@ -29,6 +30,11 @@ class FeedAllViewModel @AssistedInject constructor(
         }.execute {
             copy(data = it)
         }
+    }
+
+    fun likeOrDislikePost(post: Post) = viewModelScope.launch {
+        presenter.likeOrDislikePost(post)
+        getAllData()
     }
 
     @AssistedFactory

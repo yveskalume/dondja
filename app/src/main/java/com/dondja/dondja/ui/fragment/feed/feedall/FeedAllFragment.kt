@@ -16,12 +16,15 @@ import com.dondja.dondja.util.Log
 import com.dondja.dondja.util.showToast
 import com.dondja.dondja.util.ui.ThemeClickListener
 import com.dondja.dondja.util.ui.withModelsFrom
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FeedAllFragment : Fragment(R.layout.fragment_feed_all),MavericksView, ThemeClickListener {
     private val binding by viewBinding<FragmentFeedAllBinding>()
     private val viewModel: FeedAllViewModel by fragmentViewModel()
+
+    private val currentUser by lazy { FirebaseAuth.getInstance().currentUser }
 
     override fun onThemeClick(themeName: String) {
         val direction = FeedFragmentDirections.toThemeFeedFragment()
@@ -47,6 +50,7 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all),MavericksView, Them
                 post {
                     id(item.value.uid)
                     post(item.value)
+                    isLiked(item.value.isLiked(currentUser!!.uid))
                     themeClickListener(this@FeedAllFragment)
                     onTextClick { _ ->
                         val direction = FeedFragmentDirections.toPostViewFragment(item.value)
@@ -55,6 +59,10 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all),MavericksView, Them
                     onPostClick {
                         val direction = FeedFragmentDirections.toPostViewFragment(item.value)
                         findNavController().navigate(direction)
+                    }
+
+                    likeClickListener { _ ->
+                        viewModel.likeOrDislikePost(item.value)
                     }
                 }
 

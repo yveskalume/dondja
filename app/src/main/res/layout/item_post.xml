@@ -13,6 +13,9 @@
             name="post"
             type="com.dondja.dondja.data.entity.Post" />
         <variable
+            name="isLiked"
+            type="Boolean" />
+        <variable
             name="onOptionClick"
             type="android.view.View.OnClickListener" />
         <variable
@@ -25,6 +28,25 @@
         <variable
             name="themeClickListener"
             type="com.dondja.dondja.util.ui.ThemeClickListener" />
+
+        <variable
+            name="likeClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="commentClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="shareClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="starClickListener"
+            type="android.view.View.OnClickListener" />
+
+
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -119,6 +141,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:chipBackgroundColor="#F1F1F1"
+                android:onClick="@{likeClickListener}"
                 android:text="Nature" />
 
 
@@ -202,7 +225,9 @@
                 android:layout_weight="0"
                 android:background="#FFFFFF"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_like"
+                tools:src="@drawable/ic_like"
+                bindLikeBtn="@{isLiked}"
+                android:onClick="@{likeClickListener}"
                 app:layout_constraintEnd_toStartOf="@id/guideline25"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
