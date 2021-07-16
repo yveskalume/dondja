@@ -229,7 +229,7 @@
                 app:icon_size="25dp"
                 app:like_drawable="@drawable/ic_red_heart"
                 app:unlike_drawable="@drawable/ic_like"
-                app:liked="true"
+                app:liked="@{isLiked}"
                 android:onClick="@{likeClickListener}"
                 app:layout_constraintEnd_toStartOf="@id/guideline25"
                 app:layout_constraintHorizontal_bias="0.0"
