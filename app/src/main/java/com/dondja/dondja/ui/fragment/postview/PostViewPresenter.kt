@@ -12,4 +12,8 @@ class PostViewPresenter @Inject constructor(
     suspend fun likeOrDislikePost(post: Post) = withContext(Dispatchers.IO) {
         postInteractor.likeOrDislike(post)
     }
+
+    suspend fun getPostByUid(uid: String) = withContext(Dispatchers.IO) {
+        postInteractor.getOneById(uid)
+    }
 }

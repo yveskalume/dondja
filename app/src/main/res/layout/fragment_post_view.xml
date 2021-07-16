@@ -4,9 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="post"
-            type="com.dondja.dondja.data.entity.Post" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:sliderAutoCycleEnabled="true"
-            app:setImagesWithourDot="@{post.imagesUrls}"
             app:showTopShadow="false"
             app:imageScaleType="fitCenter"
             app:showNavigationButtons="false"
@@ -54,7 +50,6 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="16dp"
                 tools:src="@drawable/profile"
-                app:setImageUrl="@{post.userProfilePicture}"
                 app:layout_constraintBottom_toTopOf="@id/description"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -66,7 +61,6 @@
                 android:layout_marginStart="5dp"
                 android:maxLines="1"
                 tools:text="Lover Moon"
-                android:text="@{post.userDisplayName}"
                 android:textColor="@android:color/white"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -79,13 +73,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 tools:text="Il ya 23 heures"
-                app:bindDate="@{post.createdAt}"
                 android:textSize="12sp"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@id/name"
                 app:layout_constraintTop_toBottomOf="@id/name" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/localisation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -101,7 +95,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="10dp"
-                android:text="@{post.description}"
                 tools:text="@string/post_description"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -136,12 +129,12 @@
                     app:tint="@color/white" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtlikes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
                     tools:text="500 K"
-                    longText="@{post.likes}"
                     android:textColor="#FFFFFF"
                     android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="@id/likeBtn"
@@ -164,11 +157,11 @@
                     app:tint="@color/white" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtCommentsNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     tools:text="100"
-                    longText="@{post.commentsNumber}"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="@id/commentBtn"
@@ -191,11 +184,11 @@
                     app:tint="@color/white" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtShares"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     tools:text="100"
-                    longText="@{post.shares}"
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="@id/shareBtn"

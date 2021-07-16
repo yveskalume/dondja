@@ -119,4 +119,6 @@ dependencies {
 
     implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.0.2'
 
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+
 }

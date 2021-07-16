@@ -1,18 +1,14 @@
 package com.dondja.dondja.ui.fragment.feed.feedall
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.View
 import android.viewbinding.library.fragment.viewBinding
-import androidx.fragment.app.viewModels
+import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.carousel
 import com.airbnb.mvrx.*
 import com.dondja.dondja.*
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentFeedAllBinding
-import com.dondja.dondja.ui.fragment.feed.FeedFragmentDirections
-import com.dondja.dondja.util.Log
 import com.dondja.dondja.util.showToast
 import com.dondja.dondja.util.ui.ThemeClickListener
 import com.dondja.dondja.util.ui.withModelsFrom
@@ -27,8 +23,8 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all),MavericksView, Them
     private val currentUser by lazy { FirebaseAuth.getInstance().currentUser }
 
     override fun onThemeClick(themeName: String) {
-        val direction = FeedFragmentDirections.toThemeFeedFragment()
-        findNavController().navigate(direction)
+//        val direction = FeedFragmentDirections.toThemeFeedFragment()
+//        findNavController().navigate(direction)
     }
 
     private fun bindData(data: FeedAllData) {
@@ -53,16 +49,17 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all),MavericksView, Them
                     isLiked(item.value.isLiked(currentUser!!.uid))
                     themeClickListener(this@FeedAllFragment)
                     onTextClick { _ ->
-                        val direction = FeedFragmentDirections.toPostViewFragment(item.value)
-                        findNavController().navigate(direction)
+                        val uri = resources.getString(R.string.post_deeplink,item.value.uid).toUri()
+                        findNavController().navigate(uri)
                     }
                     onPostClick {
-                        val direction = FeedFragmentDirections.toPostViewFragment(item.value)
-                        findNavController().navigate(direction)
+                        val uri = resources.getString(R.string.post_deeplink,item.value.uid).toUri()
+                        findNavController().navigate(uri)
                     }
 
                     likeClickListener { _ ->
                         viewModel.likeOrDislikePost(item.value)
+                        binding.rvFeedAll.requestModelBuild()
                     }
                 }
 

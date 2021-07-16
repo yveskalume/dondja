@@ -217,16 +217,19 @@
             android:weightSum="9"
             app:layout_constraintTop_toBottomOf="@id/views">
 
-            <ImageButton
+            <com.like.LikeButton
                 android:id="@+id/likeBtn"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginEnd="4dp"
                 android:layout_weight="0"
-                android:background="#FFFFFF"
-                android:scaleType="fitCenter"
-                tools:src="@drawable/ic_like"
-                bindLikeBtn="@{isLiked}"
+                app:icon_type="heart"
+                app:anim_scale_factor="2"
+                app:is_enabled="true"
+                app:icon_size="25dp"
+                app:like_drawable="@drawable/ic_red_heart"
+                app:unlike_drawable="@drawable/ic_like"
+                app:liked="true"
                 android:onClick="@{likeClickListener}"
                 app:layout_constraintEnd_toStartOf="@id/guideline25"
                 app:layout_constraintHorizontal_bias="0.0"

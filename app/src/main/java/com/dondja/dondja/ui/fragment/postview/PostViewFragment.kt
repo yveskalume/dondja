@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.airbnb.mvrx.MavericksView
-import com.airbnb.mvrx.fragmentViewModel
+import com.airbnb.mvrx.*
 import com.dondja.dondja.R
+import com.dondja.dondja.data.entity.Post
 import com.dondja.dondja.databinding.FragmentPostViewBinding
+import com.dondja.dondja.util.showToast
+import com.dondja.dondja.util.ui.bindDate
 import com.dondja.dondja.util.ui.setImageUrl
+import com.dondja.dondja.util.ui.setImagesWithourDot
 
 class PostViewFragment : Fragment(R.layout.fragment_post_view), MavericksView {
     private val viewModel : PostViewViewModel by fragmentViewModel()
@@ -21,7 +24,6 @@ class PostViewFragment : Fragment(R.layout.fragment_post_view), MavericksView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bindData()
         setUpListenr()
     }
 
@@ -29,17 +31,39 @@ class PostViewFragment : Fragment(R.layout.fragment_post_view), MavericksView {
         binding.materialToolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
+    }
+
+    private fun bindData(post: Post) {
+        binding.run {
+            txtCommentsNumber.text = post.commentsNumber.toString()
+            txtlikes.text = post.likes.toString()
+            txtShares.text = post.shares.toString()
+            description.text = post.description
+            postImageView.setImagesWithourDot(post.imagesUrls)
+            profile.setImageUrl(post.userProfilePicture)
+            materialTextView3.bindDate(post.createdAt!!)
+
+        }
 
         binding.likeBtn.setOnClickListener {
-            viewModel.likeOrDislikePost(args.post)
+            viewModel.likeOrDislikePost(post)
         }
     }
 
-    private fun bindData() {
-        binding.post =  args.post
-    }
+    override fun invalidate() = withState(viewModel) {
 
-    override fun invalidate() {
+        when(it.post) {
+            is Loading -> {
 
+            }
+
+            is Success -> {
+                bindData(it.post.invoke())
+            }
+
+            is Fail -> {
+                showToast(it.post.error.message.toString())
+            }
+        }
     }
 }

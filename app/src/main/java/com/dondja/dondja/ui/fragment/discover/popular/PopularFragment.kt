@@ -32,8 +32,8 @@ class PopularFragment : Fragment(R.layout.fragment_popular), MavericksView {
                     id(post.uid)
                     post(post)
                     onImageClickListener {_ ->
-                        val directions = PopularFragmentDirections.toPostViewFragment(post)
-                        findNavController().navigate(directions)
+//                        val directions = PopularFragmentDirections.toPostViewFragment(post)
+//                        findNavController().navigate(directions)
                     }
 
                     onProfileClickListener {_ ->

@@ -29,6 +29,11 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
         binding.profilePic.setImageUrl(auth.currentUser?.photoUrl.toString())
     }
 
+    override fun onResume() {
+        super.onResume()
+        setUpPager()
+    }
+
     private fun setUpPager() {
         val fragments = listOf(
             "Tout" to FeedAllFragment(),
@@ -48,10 +53,10 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
             tab.text = fragments[position].first
             viewPager.currentItem = 0
             if (feedPagerAdapter.itemCount > 0) {
-//                val currentItem = viewPager.currentItem
-//                if (currentItem != tabLayout.selectedTabPosition) {
-//                    tabLayout.getTabAt(currentItem)?.select()
-//                }
+                val currentItem = viewPager.currentItem
+                if (currentItem != tabLayout.selectedTabPosition) {
+                    tabLayout.getTabAt(currentItem)?.select()
+                }
             }
         }.attach()
     }

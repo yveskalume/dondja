@@ -12,4 +12,5 @@
     <string name="bienvenue_sur_dondja_user">Bienvenue sur <font color="#EE2255">Dondja</font> %s</string>
     <string name="nous_vous_prions_de_garder_secret">Nous vous prions de garder secret vos coordonnées de peur que quelqu’un d’autre les aperçoit et tente de se connecter sur votre compte</string>
     <string name="text_max">0/100</string>
+    <string name="post_deeplink">http://dondja.com/post/%s</string>
 </resources>

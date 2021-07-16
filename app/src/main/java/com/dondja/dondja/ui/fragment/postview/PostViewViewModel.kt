@@ -19,6 +19,10 @@ class PostViewViewModel @AssistedInject constructor(
         presenter.likeOrDislikePost(post)
     }
 
+    fun getPost(uidPost: String) = viewModelScope.launch {
+        presenter.getPostByUid(uidPost)
+    }
+
 
     @AssistedFactory
     interface Factory : AssistedViewModelFactory<PostViewViewModel, PostViewState> {
