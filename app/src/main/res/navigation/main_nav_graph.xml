@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/feedFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/notificationFragment"
@@ -51,5 +51,17 @@
     <fragment
         android:id="@+id/discoverFragment"
         android:name="com.dondja.dondja.ui.fragment.discover.DiscoverFragment"
-        android:label="DiscoverFragment" />
+        android:label="DiscoverFragment" >
+        <action
+            android:id="@+id/to_postViewFragment"
+            app:destination="@id/postViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dondja.dondja.ui.fragment.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
 </navigation>

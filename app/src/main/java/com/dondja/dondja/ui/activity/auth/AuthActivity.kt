@@ -27,6 +27,7 @@ class AuthActivity : AppCompatActivity() {
 
         if (auth.currentUser != null) {
             startActivity(Intent(this,MainActivity::class.java))
+            finish()
         }
     }
 }

@@ -31,17 +31,18 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
        lifecycleScope.launch() {
            if (currentUser == null) {
                delay(2000L)
-               val directions = SplashFragmentDirections.toWelcomeFragment()
+//               val directions = SplashFragmentDirections.toWelcomeFragment()
+//               findNavController().navigate(directions)
+           }
+           else if (currentUser != null) {
+               delay(2000L)
+               val directions = SplashFragmentDirections.toFeedFragment()
                findNavController().navigate(directions)
            }
-//           else if (currentUser != null && !currentUser!!.isEmailVerified) {
+//        else if (currentUser != null) {
 //               delay(2000L)
-//               val directions = SplashFragmentDirections
+//               startActivity(Intent(requireContext(),MainActivity::class.java))
 //           }
-        else if (currentUser != null) {
-               delay(2000L)
-               startActivity(Intent(requireContext(),MainActivity::class.java))
-           }
        }
     }
 }

@@ -11,6 +11,7 @@ import com.dondja.dondja.R
 import com.dondja.dondja.data.entity.Post
 import com.dondja.dondja.databinding.FragmentPopularBinding
 import com.dondja.dondja.discover
+import com.dondja.dondja.ui.fragment.discover.DiscoverFragmentDirections
 import com.dondja.dondja.util.showToast
 import com.dondja.dondja.util.ui.GridColumn
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,8 +33,8 @@ class PopularFragment : Fragment(R.layout.fragment_popular), MavericksView {
                     id(post.uid)
                     post(post)
                     onImageClickListener {_ ->
-//                        val directions = PopularFragmentDirections.toPostViewFragment(post)
-//                        findNavController().navigate(directions)
+                        val directions = DiscoverFragmentDirections.toPostViewFragment(post)
+                        findNavController().navigate(directions)
                     }
 
                     onProfileClickListener {_ ->

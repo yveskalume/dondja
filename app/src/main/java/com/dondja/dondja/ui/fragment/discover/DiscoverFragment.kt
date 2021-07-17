@@ -21,9 +21,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class DiscoverFragment : Fragment(R.layout.fragment_discover) {
     private val binding by viewBinding<FragmentDiscoverBinding>()
 
-    private val viewPager by lazy { binding.viewPager }
-    private val tabLayout by lazy { binding.tabLayout }
-
     val fragments = listOf(
             "Pour toi" to ForYouFragment(),
             "Populaire" to PopularFragment(),
@@ -37,6 +34,9 @@ class DiscoverFragment : Fragment(R.layout.fragment_discover) {
     }
 
     private fun setUpPager() {
+
+        val viewPager = binding.viewPager
+        val tabLayout = binding.tabLayout
 
         viewPager.adapter = FragmentPagerAdapter(requireActivity(),fragments)
         viewPager.currentItem = 0
