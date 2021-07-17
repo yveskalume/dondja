@@ -18,9 +18,6 @@ import com.google.firebase.auth.FirebaseAuth
 class FeedFragment : Fragment(R.layout.fragment_feed) {
 
     private val binding by viewBinding<FragmentFeedBinding>()
-
-    private val viewPager by lazy { binding.viewPager }
-    private val tabLayout by lazy { binding.tabLayout }
     private val auth by lazy { FirebaseAuth.getInstance() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,12 +26,10 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
         binding.profilePic.setImageUrl(auth.currentUser?.photoUrl.toString())
     }
 
-    override fun onResume() {
-        super.onResume()
-        setUpPager()
-    }
-
     private fun setUpPager() {
+        val viewPager = binding.viewPager
+        val tabLayout = binding.tabLayout
+
         val fragments = listOf(
             "Tout" to FeedAllFragment(),
             "Groupes" to FeedGroupFragment(),
@@ -42,23 +37,15 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
             "Hashtag" to FeedHashtagFragment()
         )
 
-       val feedPagerAdapter = FeedPagerAdapter(requireActivity(),fragments).also {
-           viewPager.adapter = it
-       }
+        viewPager.adapter = FeedPagerAdapter(childFragmentManager,lifecycle,fragments)
 
         TabLayoutMediator(tabLayout, viewPager
         ) { tab, position ->
-
-//            viewPager.currentItem = position
             tab.text = fragments[position].first
-            viewPager.currentItem = 0
-            if (feedPagerAdapter.itemCount > 0) {
-                val currentItem = viewPager.currentItem
-                if (currentItem != tabLayout.selectedTabPosition) {
-                    tabLayout.getTabAt(currentItem)?.select()
-                }
-            }
+            viewPager.setCurrentItem(tab.position,true)
         }.attach()
+
+        tabLayout.getTabAt(0)?.let { tabLayout.selectTab(it) }
     }
 
 }

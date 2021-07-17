@@ -24,10 +24,12 @@ class PostViewFragment : Fragment(R.layout.fragment_post_view), MavericksView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpListenr()
+        setUpListener()
+        val post = args.post
+        bindData(post)
     }
 
-    private fun setUpListenr() {
+    private fun setUpListener() {
         binding.materialToolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
@@ -42,7 +44,6 @@ class PostViewFragment : Fragment(R.layout.fragment_post_view), MavericksView {
             postImageView.setImagesWithourDot(post.imagesUrls)
             profile.setImageUrl(post.userProfilePicture)
             materialTextView3.bindDate(post.createdAt!!)
-
         }
 
         binding.likeBtn.setOnClickListener {
@@ -58,7 +59,7 @@ class PostViewFragment : Fragment(R.layout.fragment_post_view), MavericksView {
             }
 
             is Success -> {
-                bindData(it.post.invoke())
+//                bindData(it.post.invoke())
             }
 
             is Fail -> {

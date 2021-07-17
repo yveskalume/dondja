@@ -9,6 +9,7 @@ import com.airbnb.mvrx.*
 import com.dondja.dondja.*
 import com.dondja.dondja.R
 import com.dondja.dondja.databinding.FragmentFeedAllBinding
+import com.dondja.dondja.ui.fragment.feed.FeedFragmentDirections
 import com.dondja.dondja.util.showToast
 import com.dondja.dondja.util.ui.ThemeClickListener
 import com.dondja.dondja.util.ui.withModelsFrom
@@ -49,12 +50,12 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all),MavericksView, Them
                     isLiked(item.value.isLiked(currentUser!!.uid))
                     themeClickListener(this@FeedAllFragment)
                     onTextClick { _ ->
-                        val uri = resources.getString(R.string.post_deeplink,item.value.uid).toUri()
-                        findNavController().navigate(uri)
+                        val direction = FeedFragmentDirections.toPostViewFragment(item.value)
+                        findNavController().navigate(direction)
                     }
                     onPostClick {
-                        val uri = resources.getString(R.string.post_deeplink,item.value.uid).toUri()
-                        findNavController().navigate(uri)
+                        val direction = FeedFragmentDirections.toPostViewFragment(item.value)
+                        findNavController().navigate(direction)
                     }
 
                     likeClickListener { _ ->

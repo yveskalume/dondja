@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/feedAllFragment">
+    app:startDestination="@id/feedFragment">
 
     <fragment
         android:id="@+id/notificationFragment"
@@ -24,12 +24,9 @@
         android:id="@+id/postViewFragment"
         android:name="com.dondja.dondja.ui.fragment.postview.PostViewFragment"
         android:label="PostViewFragment" >
-        <deepLink
-            android:autoVerify="true"
-            app:uri="http://dondja.com/post/{postUid}"/>
         <argument
-            android:name="postUid"
-            app:argType="string" />
+            android:name="post"
+            app:argType="com.dondja.dondja.data.entity.Post" />
     </fragment>
     <dialog
         android:id="@+id/dialogStoryViewersFragment"
@@ -44,20 +41,13 @@
         android:name="com.dondja.dondja.ui.fragment.createpost.CreatePostFragment"
         android:label="CreatePostFragment" />
     <fragment
-        android:id="@+id/feedAllFragment"
-        android:name="com.dondja.dondja.ui.fragment.feed.feedall.FeedAllFragment"
-        android:label="FeedAllFragment" >
+        android:id="@+id/feedFragment"
+        android:name="com.dondja.dondja.ui.fragment.feed.FeedFragment"
+        android:label="FeedFragment" >
         <action
             android:id="@+id/to_postViewFragment"
             app:destination="@id/postViewFragment" />
-        <action
-            android:id="@+id/to_storyViewFragment"
-            app:destination="@id/storyViewFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/feedFragment"
-        android:name="com.dondja.dondja.ui.fragment.feed.FeedFragment"
-        android:label="FeedFragment" />
     <fragment
         android:id="@+id/discoverFragment"
         android:name="com.dondja.dondja.ui.fragment.discover.DiscoverFragment"
