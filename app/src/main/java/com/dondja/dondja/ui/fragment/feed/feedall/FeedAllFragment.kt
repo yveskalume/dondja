@@ -58,6 +58,11 @@ class FeedAllFragment : Fragment(R.layout.fragment_feed_all),MavericksView, Them
                         findNavController().navigate(direction)
                     }
 
+                    onUserClick { _ ->
+                        val direction = FeedFragmentDirections.toProfileFragment(item.value.userUid)
+                        findNavController().navigate(direction)
+                    }
+
                     likeClickListener { _ ->
                         viewModel.likeOrDislikePost(item.value)
                         binding.rvFeedAll.requestModelBuild()

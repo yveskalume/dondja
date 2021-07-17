@@ -26,6 +26,9 @@
             name="onPostClick"
             type="Function1&lt;Unit, Unit>"/>
         <variable
+            name="onUserClick"
+            type="android.view.View.OnClickListener" />
+        <variable
             name="themeClickListener"
             type="com.dondja.dondja.util.ui.ThemeClickListener" />
 
@@ -81,6 +84,7 @@
             android:layout_height="45dp"
             android:layout_marginTop="15dp"
             tools:src="@drawable/profile"
+            android:onClick="@{onUserClick}"
             app:setImageUrl="@{post.userProfilePicture}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -91,6 +95,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:maxLines="1"
+            tools:text="Yves Kalume"
+            android:onClick="@{onUserClick}"
             android:text="@{post.userDisplayName}"
             android:textColor="@android:color/black"
             android:textSize="15sp"

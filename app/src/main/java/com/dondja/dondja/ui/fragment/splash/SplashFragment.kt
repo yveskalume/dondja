@@ -28,21 +28,21 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     }
 
     private fun setUpSplash() {
-       lifecycleScope.launch() {
-           if (currentUser == null) {
-               delay(2000L)
+//       lifecycleScope.launch() {
+//           if (currentUser == null) {
+//               delay(2000L)
 //               val directions = SplashFragmentDirections.toWelcomeFragment()
 //               findNavController().navigate(directions)
-           }
-           else if (currentUser != null) {
-               delay(2000L)
-               val directions = SplashFragmentDirections.toFeedFragment()
-               findNavController().navigate(directions)
-           }
+//           }
+//           else if (currentUser != null) {
+//               delay(2000L)
+//               val directions = SplashFragmentDirections.toFeedFragment()
+//               findNavController().navigate(directions)
+//           }
 //        else if (currentUser != null) {
 //               delay(2000L)
 //               startActivity(Intent(requireContext(),MainActivity::class.java))
 //           }
-       }
+//       }
     }
 }

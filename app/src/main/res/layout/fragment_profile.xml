@@ -28,6 +28,7 @@
                 app:navigationIconTint="@color/red">
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="?attr/actionBarSize"
@@ -50,7 +51,7 @@
                 tools:src="@drawable/img2" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView34"
+                android:id="@+id/name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -77,7 +78,7 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialTextView34" />
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/msgButton"
@@ -138,6 +139,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/posts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -168,6 +170,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/followers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="350M"
@@ -196,6 +199,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/followings"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="27"
@@ -224,6 +228,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/groups"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3"
