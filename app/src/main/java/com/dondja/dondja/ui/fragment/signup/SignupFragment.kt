@@ -80,6 +80,7 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
         viewModel.user = viewModel.user.copy(
             firstName = binding.firstname.text.toString(),
             secondName = binding.secondname.text.toString(),
+            displayName = "${binding.firstname} ${binding.secondname}",
             sexe = binding.sexe.text.toString(),
             birthday = birthdayLiveData.value,
         )
