@@ -16,200 +16,296 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/imageProfile"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/materialToolbar4"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:scaleType="centerCrop"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:menu="@menu/menu_profile"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+                app:navigationIconTint="@color/red">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="?attr/actionBarSize"
+                    android:gravity="center"
+                    android:text="\@Shiha_jisano"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+            </com.google.android.material.appbar.MaterialToolbar>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageProfile"
+                android:layout_width="149dp"
+                android:layout_height="149dp"
+                android:layout_marginTop="32dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialToolbar4"
                 tools:src="@drawable/img2" />
 
-
             <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
+                android:id="@+id/materialTextView34"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:gravity="center"
                 android:text="TONY LUBAMBA"
-                app:layout_constraintBottom_toTopOf="@+id/materialTextView20"
-                app:layout_constraintEnd_toEndOf="@id/imageProfile"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/imageProfile" />
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/materialTextView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="diana_211"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@id/imageProfile"
-                app:layout_constraintEnd_toEndOf="@id/imageProfile"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/imageProfile" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView33"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:text="L’imperfction n’est pas de guérir, mais de vivre avec ses maux, telle est la voie qu’a choisie @diana_211"
-                android:textColor="@color/black"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:gravity="center"
+                android:text="Paris, France"
+                android:textColor="#9D9D9D"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageProfile" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/materialButton5"
-                android:layout_width="42dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center_horizontal|center_vertical" app:icon="@drawable/ic_menu_horizontal"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                app:iconTint="@color/black"
-                app:backgroundTint="@color/white"
-                android:textColor="@color/black"
-                android:stateListAnimator="@null"
-                app:strokeColor="@color/black"
-                app:strokeWidth="0.5dp"
-                app:cornerRadius="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialTextView33" />
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView34" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/msgButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="Message"
-                app:backgroundTint="@color/white"
-                android:textColor="@color/black"
+                android:layout_marginEnd="24dp"
                 android:stateListAnimator="@null"
-                app:strokeColor="@color/black"
-                app:strokeWidth="0.5dp"
+                android:text="Message"
+                app:cornerRadius="34dp"
                 android:textAllCaps="false"
+                android:textColor="@color/black"
                 android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@+id/materialButton5"
-                app:layout_constraintEnd_toStartOf="@+id/materialButton5"
+                app:backgroundTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/followBtn"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/followBtn"
-                app:layout_constraintTop_toTopOf="@+id/materialButton5" />
+                app:layout_constraintTop_toTopOf="@+id/followBtn"
+                app:layout_constraintVertical_bias="0.0"
+                app:strokeColor="@color/black"
+                app:strokeWidth="0.5dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/followBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="S'abonner"
+                app:cornerRadius="34dp"
                 android:textAllCaps="false"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/msgButton"
                 app:layout_constraintEnd_toStartOf="@+id/msgButton"
-                app:layout_constraintHorizontal_bias="0.11"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/msgButton" />
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView20" />
 
             <LinearLayout
+                android:id="@+id/statsLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:weightSum="3"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
                 android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/followBtn">
+
                 <LinearLayout
-                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16dp"
                     android:layout_marginBottom="@dimen/margin_16dp"
-                    android:layout_width="0dp"
-                    android:orientation="vertical"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:text="400"
-                        android:layout_gravity="center"
-                        android:gravity="center"
+                        android:textColor="@color/black"
                         android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Posts"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:text="Posts"
+                        android:textColor="#BBBBBB"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#BBBBBB"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16dp"
                     android:layout_marginBottom="@dimen/margin_16dp"
-                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="350M"
+                        android:textColor="@color/black"
                         android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="followers"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:text="followers"
+                        android:textColor="#BBBBBB"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#BBBBBB"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16dp"
                     android:layout_marginBottom="@dimen/margin_16dp"
-                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="27"
+                        android:textColor="@color/black"
                         android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="followings"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:text="followings"
+                        android:textColor="#BBBBBB"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#BBBBBB"/>
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Groups"
+                        android:textColor="#BBBBBB"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="La perfection n’est pas de guérir, mais de vivre avec ses maux"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/statsLayout" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/img3"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView2"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/img2"
+                app:layout_constraintBottom_toBottomOf="@id/circleImageView"
+                app:layout_constraintStart_toStartOf="@+id/circleImageView"
+                app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView3"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/img1"
+                app:layout_constraintBottom_toBottomOf="@id/circleImageView2"
+                app:layout_constraintStart_toStartOf="@+id/circleImageView2"
+                app:layout_constraintTop_toTopOf="@+id/circleImageView2" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView4"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/img4"
+                app:layout_constraintBottom_toBottomOf="@id/circleImageView3"
+                app:layout_constraintStart_toStartOf="@+id/circleImageView3"
+                app:layout_constraintTop_toTopOf="@+id/circleImageView3" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="40dp"
+                android:text="@string/suivi_par_djody_khoya_mira_et_4_autres_personnes_comment_par_brumel"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/circleImageView4"
+                app:layout_constraintTop_toTopOf="@+id/circleImageView4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

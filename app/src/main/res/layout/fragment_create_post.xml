@@ -26,7 +26,7 @@
                 android:layout_height="match_parent"
                 android:text="Créer une publication"
                 android:layout_marginEnd="?attr/actionBarSize"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textColor="@color/black" />
